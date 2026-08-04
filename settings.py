@@ -1,0 +1,6 @@
+WIDTH = 1900
+HEIGHT = 1200
+
+FPS = 30
+TITLE = "Nyan Cat: The Arc"
+TILE_SIZE = 64
