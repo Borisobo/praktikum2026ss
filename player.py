@@ -28,3 +28,13 @@ class Player:
             self.vy += self.acceleration
         if keys[pygame.K_DOWN]:
             self.vy -= self.acceleration
+        #Begrenzung von max_speed
+        self.vx = max(-self.max_speed, min(self.vx, self.max_speed))
+        self.vy = max(-self.max_speed, min(self.vy, self.max_speed))
+        # Reibungskraft
+        self.vx *= self.friction
+        self.vy *= self.friction
+        self.x += self.vx
+        self.y += self.vy
+        self.rect.x += int(self.x)
+        self.rect.y += int(self.y)
