@@ -29,7 +29,7 @@ class Game:
         self.water_timer = 0
 
     def draw_water(self):
-        self.screen.blit(self.water_frames[self.current_water], (0, 0))
+        self.screen.blit(self.water_tiles[self.current_water], (0, 0))
     def run(self):
         self.running = True
 
