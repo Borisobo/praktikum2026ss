@@ -1,6 +1,7 @@
 import pygame
 from settings import WIDTH, HEIGHT, FPS, TITLE
 from player import Player
+from level import Level
 
 
 class Game:
@@ -10,6 +11,7 @@ class Game:
         pygame.display.set_caption(TITLE)
         self.clock = pygame.time.Clock()
         self.player = Player()
+        self.level = Level()
         self.tile_size = 128
         c = WIDTH // self.tile_size + 1
         r = HEIGHT // self.tile_size + 1
@@ -62,7 +64,8 @@ class Game:
             self.draw_water()
             keys = pygame.key.get_pressed()
             self.player.update(keys)
-
+            self.level.check_boundaries(self.player)
+            
             self.player.draw(self.screen)
             pygame.display.flip()
             self.clock.tick(FPS)
