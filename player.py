@@ -1,19 +1,22 @@
 import pygame
+from settings import WIDTH, HEIGHT
 
 class Player:
     def __init__(self):
         self.image = pygame.image.load("assets/boat.png").convert_alpha()
+        bounding = self.image.get_bounding_rect()
+        self.image = self.image.subsurface(bounding).copy()
 
         self.image = pygame.transform.scale(self.image, (256, 200))
 
-        self.rect = self.image.get_rect(center=(640,340))
+        self.rect = self.image.get_rect(midbottom=(WIDTH//2, HEIGHT - 130))
         self.x = float(self.rect.x)
         self.y = float(self.rect.y)
         self.vx = 0
         self.vy = 0
         self.acceleration = 0.15
         self.max_speed = 3
-        self.friction = 0.92
+        self.friction = 0.96
 
 
     def draw(self, screen):
@@ -25,9 +28,9 @@ class Player:
         if keys[pygame.K_RIGHT]:
             self.vx += self.acceleration
         if keys[pygame.K_UP]:
-            self.vy += self.acceleration
-        if keys[pygame.K_DOWN]:
             self.vy -= self.acceleration
+        if keys[pygame.K_DOWN]:
+            self.vy += self.acceleration
         #Begrenzung von max_speed
         self.vx = max(-self.max_speed, min(self.vx, self.max_speed))
         self.vy = max(-self.max_speed, min(self.vy, self.max_speed))
@@ -36,5 +39,5 @@ class Player:
         self.vy *= self.friction
         self.x += self.vx
         self.y += self.vy
-        self.rect.x += int(self.x)
-        self.rect.y += int(self.y)
+        self.rect.x = int(self.x)
+        self.rect.y = int(self.y)
