@@ -1,0 +1,373 @@
+CATS = {
+
+    # ================= LEVEL 1 =================
+
+    1: {
+
+        "library": [
+
+            {
+                "name": "Felix",
+                "beruf": "Bibliothekar",
+                "eigenschaften": ["wissbegierig", "klug", "gedankenvoll"],
+                "hilfsbereitschaft": 5.0
+            },
+
+            {
+                "name": "Luna",
+                "beruf": "Historikerin",
+                "eigenschaften": ["weise", "geduldig", "ruhig"],
+                "hilfsbereitschaft": 4.5
+            },
+
+            {
+                "name": "Oskar",
+                "beruf": "Lehrer",
+                "eigenschaften": ["kommunikativ", "verantwortungsbewusst", "freundlich"],
+                "hilfsbereitschaft": 4.0
+            }
+
+        ],
+
+        "island1": [
+
+            {
+                "name": "Milo",
+                "beruf": "Fischer",
+                "eigenschaften": ["mutig", "ausdauernd", "naturverbunden"],
+                "hilfsbereitschaft": 4.5
+            },
+
+            {
+                "name": "Nala",
+                "beruf": "Gärtnerin",
+                "eigenschaften": ["fürsorglich", "optimistisch", "fleißig"],
+                "hilfsbereitschaft": 3.5
+            }
+
+        ]
+
+    },
+
+    # ================= LEVEL 2 =================
+
+    2: {
+
+        "island2": [
+
+            {
+                "name": "Simba",
+                "beruf": "Zimmermann",
+                "eigenschaften": ["stark", "zuverlässig", "zielstrebig"],
+                "hilfsbereitschaft": 5.0
+            },
+
+            {
+                "name": "Coco",
+                "beruf": "Bäckerin",
+                "eigenschaften": ["großzügig", "kreativ", "freundlich"],
+                "hilfsbereitschaft": 4.5
+            },
+
+            {
+                "name": "Leo",
+                "beruf": "Elektriker",
+                "eigenschaften": ["erfinderisch", "konzentriert", "intelligent"],
+                "hilfsbereitschaft": 4.0
+            }
+
+        ],
+
+        "shop": [
+
+            {
+                "name": "Max",
+                "beruf": "Verkäufer",
+                "eigenschaften": ["kommunikativ", "höflich", "geduldig"],
+                "hilfsbereitschaft": 5.0
+            },
+
+            {
+                "name": "Bella",
+                "beruf": "Lagerarbeiterin",
+                "eigenschaften": ["organisiert", "ordentlich", "verantwortungsbewusst"],
+                "hilfsbereitschaft": 4.5
+            },
+
+            {
+                "name": "Charly",
+                "beruf": "Kassierer",
+                "eigenschaften": ["ehrlich", "genau", "pünktlich"],
+                "hilfsbereitschaft": 4.0
+            }
+
+        ],
+
+        "island3": [
+
+            {
+                "name": "Lucy",
+                "beruf": "Fotografin",
+                "eigenschaften": ["kreativ", "aufmerksam", "neugierig"],
+                "hilfsbereitschaft": 4.0
+            },
+
+            {
+                "name": "Rocky",
+                "beruf": "Musiker",
+                "eigenschaften": ["humorvoll", "offen", "optimistisch"],
+                "hilfsbereitschaft": 3.5
+            },
+
+            {
+                "name": "Daisy",
+                "beruf": "Künstlerin",
+                "eigenschaften": ["fantasievoll", "sensibel", "unabhängig"],
+                "hilfsbereitschaft": 3.0
+            }
+
+        ]
+
+    }
+
+}
+    # ================= LEVEL 3 =================
+
+    3: {
+
+        "island4": [
+
+            {
+                "name": "Bruno",
+                "beruf": "Kapitän",
+                "eigenschaften": ["mutig", "zuverlässig", "entschlossen"],
+                "hilfsbereitschaft": 5.0
+            },
+
+            {
+                "name": "Emma",
+                "beruf": "Navigatorin",
+                "eigenschaften": ["klug", "aufmerksam", "vorsichtig"],
+                "hilfsbereitschaft": 4.5
+            },
+
+            {
+                "name": "Finn",
+                "beruf": "Ingenieur",
+                "eigenschaften": ["erfinderisch", "intelligent", "konzentriert"],
+                "hilfsbereitschaft": 4.0
+            }
+
+        ],
+
+        "post": [
+
+            {
+                "name": "Mia",
+                "beruf": "Postbotin",
+                "eigenschaften": ["pünktlich", "freundlich", "zuverlässig"],
+                "hilfsbereitschaft": 5.0
+            },
+
+            {
+                "name": "Sammy",
+                "beruf": "Briefsortierer",
+                "eigenschaften": ["ordentlich", "genau", "geduldig"],
+                "hilfsbereitschaft": 4.5
+            },
+
+            {
+                "name": "Kira",
+                "beruf": "Kurierin",
+                "eigenschaften": ["schnell", "mutig", "hilfsbereit"],
+                "hilfsbereitschaft": 4.0
+            }
+
+        ],
+
+        "lighthouse": [
+
+            {
+                "name": "Atlas",
+                "beruf": "Leuchtturmwärter",
+                "eigenschaften": ["weise", "aufmerksam", "verantwortungsbewusst"],
+                "hilfsbereitschaft": 5.0
+            },
+
+            {
+                "name": "Ruby",
+                "beruf": "Architektin",
+                "eigenschaften": ["kreativ", "zielorientiert", "geduldig"],
+                "hilfsbereitschaft": 3.5
+            },
+
+            {
+                "name": "Oscar",
+                "beruf": "Handwerker",
+                "eigenschaften": ["fleißig", "ehrlich", "geschickt"],
+                "hilfsbereitschaft": 3.0
+            }
+
+        ]
+
+    },
+
+    # ================= LEVEL 4 =================
+
+    4: {
+
+        "cat_cafe": [
+
+            {
+                "name": "Molly",
+                "beruf": "Barista",
+                "eigenschaften": ["freundlich", "kommunikativ", "fröhlich"],
+                "hilfsbereitschaft": 5.0
+            },
+
+            {
+                "name": "Gustav",
+                "beruf": "Konditor",
+                "eigenschaften": ["kreativ", "ordentlich", "geduldig"],
+                "hilfsbereitschaft": 5.0
+            },
+
+            {
+                "name": "Mimi",
+                "beruf": "Kellnerin",
+                "eigenschaften": ["höflich", "schnell", "aufmerksam"],
+                "hilfsbereitschaft": 4.5
+            }
+
+        ],
+
+        "island5": [
+
+            {
+                "name": "Ben",
+                "beruf": "Fotograf",
+                "eigenschaften": ["neugierig", "kreativ", "aufmerksam"],
+                "hilfsbereitschaft": 4.0
+            },
+
+            {
+                "name": "Daisy",
+                "beruf": "Künstlerin",
+                "eigenschaften": ["fantasievoll", "offen", "optimistisch"],
+                "hilfsbereitschaft": 3.5
+            }
+
+        ],
+
+        "gym": [
+
+            {
+                "name": "Rex",
+                "beruf": "Trainer",
+                "eigenschaften": ["diszipliniert", "zielstrebig", "sportlich"],
+                "hilfsbereitschaft": 5.0
+            },
+
+            {
+                "name": "Sunny",
+                "beruf": "Schwimmerin",
+                "eigenschaften": ["ausdauernd", "mutig", "sportlich"],
+                "hilfsbereitschaft": 4.5
+            },
+
+            {
+                "name": "Hugo",
+                "beruf": "Rettungsschwimmer",
+                "eigenschaften": ["stark", "zuverlässig", "fürsorglich"],
+                "hilfsbereitschaft": 4.0
+            }
+
+        ]
+
+    },
+    # ================= LEVEL 5 =================
+
+    5: {
+
+        "island6": [
+
+            {
+                "name": "Theo",
+                "beruf": "Forscher",
+                "eigenschaften": ["wissbegierig", "intelligent", "ausdauernd"],
+                "hilfsbereitschaft": 4.5
+            },
+
+            {
+                "name": "Rosie",
+                "beruf": "Tierpflegerin",
+                "eigenschaften": ["fürsorglich", "geduldig", "freundlich"],
+                "hilfsbereitschaft": 4.5
+            }
+
+        ],
+
+        "greenhouse": [
+
+            {
+                "name": "Flora",
+                "beruf": "Gärtnerin",
+                "eigenschaften": ["naturverbunden", "fleißig", "geduldig"],
+                "hilfsbereitschaft": 5.0
+            },
+
+            {
+                "name": "Ivy",
+                "beruf": "Botanikerin",
+                "eigenschaften": ["klug", "vorsichtig", "neugierig"],
+                "hilfsbereitschaft": 4.5
+            },
+
+            {
+                "name": "Basil",
+                "beruf": "Biologe",
+                "eigenschaften": ["intelligent", "ruhig", "verantwortungsbewusst"],
+                "hilfsbereitschaft": 4.0
+            }
+
+        ],
+
+        "island7": [
+
+            {
+                "name": "Shadow",
+                "beruf": "Jäger",
+                "eigenschaften": ["aufmerksam", "mutig", "entschlossen"],
+                "hilfsbereitschaft": 3.5
+            },
+
+            {
+                "name": "Peanut",
+                "beruf": "Schneider",
+                "eigenschaften": ["geschickt", "ordentlich", "kreativ"],
+                "hilfsbereitschaft": 4.0
+            },
+
+            {
+                "name": "Snow",
+                "beruf": "Arzt",
+                "eigenschaften": ["hilfsbereit", "weise", "zuverlässig"],
+                "hilfsbereitschaft": 5.0
+            }
+
+        ],
+
+        "townhall": [
+
+            {
+                "name": "Leopold",
+                "beruf": "Bürgermeister",
+                "eigenschaften": ["gerecht", "loyal", "diplomatisch"],
+                "hilfsbereitschaft": 5.0
+            }
+
+        ]
+
+    }
+
+}
