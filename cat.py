@@ -1,7 +1,7 @@
 import pygame
 import random
 import os
-from cat_data_nps import Cats
+from cat_data_nps import CATS
 
 class Cat:
 
