@@ -3,12 +3,16 @@ import pygame
 from settings import HEIGHT , WIDTH
 #from cat import Cat
 #from resource import Resource
-#from island import Island
+from strand import Island
 
 class Level :
   def __init__(self) :
     self.width = WIDTH
     self.height = HEIGHT
+    self.islands = [
+        Island(500, 300),
+    ]
+
 
    # self.level_number = 1
 
@@ -44,3 +48,19 @@ class Level :
           
         player.x = player.rect.x
         player.y = player.rect.y
+
+  def draw(self, screen):
+      for island in self.islands:
+          island.draw(screen)
+
+
+  def check_collision(self, player):
+
+      for island in self.islands:
+          if player.rect.colliderect(island.rect):
+              offset_x = island.rect.x - player.rect.x
+              offset_y = island.rect.y - player.rect.y
+              offset = (offset_x, offset_y)
+              if player.mask.overlap(island.mask, offset):
+                  return True
+      return False

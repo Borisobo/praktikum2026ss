@@ -42,14 +42,26 @@ class Game:
             if self.water_timer > 600:
                 self.water_timer = 0
                 self.current_water = (self.current_water + 1) % 2
-            self.draw_water()
+
             keys = pygame.key.get_pressed()
+            old_x = self.player.x
+            old_y = self.player.y
             self.player.update(keys)
+            self.draw_water()
             self.level.check_boundaries(self.player)
-            
+            if self.level.check_collision(self.player):
+                self.player.x = old_x
+                self.player.y = old_y
+                self.player.rect.x = int(self.player.x)
+                self.player.rect.y = int(self.player.y)
+            self.draw_water()
+
+            self.level.draw(self.screen)
             self.player.draw(self.screen)
             pygame.display.flip()
             self.clock.tick(FPS)
+
+
 
         pygame.quit()
 

@@ -8,15 +8,16 @@ class Player:
         self.image = self.image.subsurface(bounding).copy()
 
         self.image = pygame.transform.scale(self.image, (256, 200))
+        self.mask = pygame.mask.from_surface(self.image)
 
         self.rect = self.image.get_rect(midbottom=(WIDTH//2, HEIGHT - 130))
         self.x = float(self.rect.x)
         self.y = float(self.rect.y)
         self.vx = 0
         self.vy = 0
-        self.acceleration = 0.15
+        self.acceleration = 0.5
         self.max_speed = 3
-        self.friction = 0.96
+        self.friction = 0.8
 
 
     def draw(self, screen):
@@ -41,3 +42,6 @@ class Player:
         self.y += self.vy
         self.rect.x = int(self.x)
         self.rect.y = int(self.y)
+        print(keys[pygame.K_UP], self.vy)
+
+
