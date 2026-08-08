@@ -174,14 +174,14 @@ CATS = {
                 "name": "Ruby",
                 "beruf": "Taschendieb",
                 "qualities": ["unmotiviert", "leichtsinnig", "hinterlistig"],
-                "rating": 3.5,
+                "rating": 3.0,
                 "location": (,)
             },
             {
                 "name": "Oscar",
                 "beruf": "Handwerker",
                 "qualities": ["unfreundlich", "misstrauisch", "pessimistisch"],
-                "rating": 3.0,
+                "rating": 3.5,
                 "location": (,)
             }
         ]
