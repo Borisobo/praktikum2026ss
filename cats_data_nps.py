@@ -24,7 +24,7 @@ CATS = {
                 "location": (,)
             }
         ],
-        "island1": [
+        "island2": [
             {
                 "name": "Milo",
                 "beruf": "Fischer",
@@ -43,7 +43,7 @@ CATS = {
     },
     # ================= LEVEL 2 =================
     2: {
-        "island2": [
+        "island3": [
             {
                 "name": "Simba",
                 "beruf": "Zimmermann",
@@ -90,7 +90,7 @@ CATS = {
                 "location": (,)
             }
         ],
-        "island3": [
+        "island4": [
             {
                 "name": "Lucy",
                 "beruf": "Fotografin",
@@ -116,7 +116,7 @@ CATS = {
     },
     # ================= LEVEL 3 =================
     3: {
-        "island4": [
+        "island5": [
             {
                 "name": "Bruno",
                 "beruf": "Kapitän",
@@ -212,7 +212,7 @@ CATS = {
                 "location": (,)
             }
         ],
-        "island5": [
+        "island6": [
             {
                 "name": "Ben",
                 "beruf": "Fotograf",
@@ -254,7 +254,7 @@ CATS = {
     },
     # ================= LEVEL 5 =================
     5: {
-        "island6": [
+        "island7": [
             {
                 "name": "Theo",
                 "beruf": "Forscher",
@@ -293,7 +293,7 @@ CATS = {
                 "location": (,)
             }
         ],
-        "island7": [
+        "island8": [
             {
                 "name": "Shadow",
                 "beruf": "Jäger",
