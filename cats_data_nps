@@ -30,8 +30,8 @@ CATS = {
             },
             {
                 "name": "Nala",
-                "beruf": "Gärtnerin",
-                "qualities": ["fürsorglich", "optimistisch", "fleißig"],
+                "beruf": "Faulpelz",
+                "qualities": ["faul", "unhöflich", "impulsiv"],
                 "rating": 3.5
             }
         ]
@@ -88,14 +88,14 @@ CATS = {
             },
             {
                 "name": "Rocky",
-                "beruf": "Musiker",
-                "qualities": ["humorvoll", "offen", "optimistisch"],
+                "beruf": "Unruhestifter",
+                "qualities": ["humorvoll", "stur", "unhöflich"],
                 "rating": 3.5
             },
             {
                 "name": "Daisy",
-                "beruf": "Künstlerin",
-                "qualities": ["fantasievoll", "sensibel", "unabhängig"],
+                "beruf": "Betrüger",
+                "qualities": ["egoistisch", "unzuverlässig", "stur"],
                 "rating": 3.0
             }
         ]
@@ -152,14 +152,14 @@ CATS = {
             },
             {
                 "name": "Ruby",
-                "beruf": "Architektin",
-                "qualities": ["kreativ", "zielorientiert", "geduldig"],
+                "beruf": "Taschendieb",
+                "qualities": ["unmotiviert", "leichtsinnig", "hinterlistig"],
                 "rating": 3.5
             },
             {
                 "name": "Oscar",
                 "beruf": "Handwerker",
-                "qualities": ["fleißig", "ehrlich", "geschickt"],
+                "qualities": ["unfreundlich", "misstrauisch", "pessimistisch"],
                 "rating": 3.0
             }
         ]
@@ -197,7 +197,7 @@ CATS = {
             {
                 "name": "Daisy",
                 "beruf": "Künstlerin",
-                "qualities": ["fantasievoll", "offen", "optimistisch"],
+                "qualities": ["nachlässig", "offen", "ängstlich"],
                 "rating": 3.5
             }
         ],
@@ -262,7 +262,7 @@ CATS = {
             {
                 "name": "Shadow",
                 "beruf": "Jäger",
-                "qualities": ["aufmerksam", "mutig", "entschlossen"],
+                "qualities": ["geizig", "mutig", "unordentlich"],
                 "rating": 3.5
             },
             {
