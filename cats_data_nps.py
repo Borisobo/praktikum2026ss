@@ -178,6 +178,13 @@ CATS = {
                 "location": (,)
             },
             {
+                "name": "Whisper",
+                "beruf": "Schatzsucher",
+                "qualities": ["geheimnisvoll", "neugierig", "vorsichtig"],
+                "rating": 4.0,
+                "location": (,)
+            },
+            {
                 "name": "Oscar",
                 "beruf": "Handwerker",
                 "qualities": ["unfreundlich", "misstrauisch", "pessimistisch"],
