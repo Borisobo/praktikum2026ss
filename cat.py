@@ -3,19 +3,22 @@ import random
 import os
 from cat_data_nps import CATS
 
-class cat:
+class Cat:
 
   cats = []
   for file in os.listdir("assets/cats.nps"):
     image = pygame.image.load("assets/cats.nps/" + file).covert_alpha()
     cats.append(image)
 
-  def __init__(self, image, beruf, name, rating, qualities):
+  def __init__(self, image, beruf, name, rating, qualities, location):
     self._image = image
     self._name = name
-    self._rating = rating
-    self._qualities = qualities
     self._beruf = beruf
+    self._qualities = qualities
+    self._rating = rating
+    self._location = location
+    
+    
 
   @classmethod
   def create_cat(cls, level, location):
@@ -23,7 +26,7 @@ class cat:
     for cat_data in CATS[level][location]:
       image = cls.cats[0]
 
-      cat = cls(image, cat_beruf["beruf"], cat_name["name"], cat_rating["rating"], cat_qualities
+      cat = cls(image, cat_name["name"], cat_beruf["beruf"], cat_qualities["qualities"], cat_rating["rating"], cat_location["location"])
 
   
     
