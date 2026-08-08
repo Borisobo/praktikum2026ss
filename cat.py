@@ -16,5 +16,8 @@ class Cat:
     self._rating = rating
     self._qualities = qualities
     self._beruf = beruf
+
+@classmethod
+def create_cat(cls, level, location):
     
     
