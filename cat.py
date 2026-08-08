@@ -17,7 +17,11 @@ class Cat:
     self._qualities = qualities
     self._beruf = beruf
 
-@classmethod
-def create_cat(cls, level, location):
+  @classmethod
+  def create_cat(cls, level, location):
+    cat_objects = []
+    for cat_data in CATS[level][location]:
+
+  
     
     
