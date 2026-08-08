@@ -135,7 +135,7 @@ CATS = {
                 "name": "Finn",
                 "beruf": "Ingenieur",
                 "qualities": ["erfinderisch", "intelligent", "konzentriert"],
-                "rating": 4.0.
+                "rating": 4.0,
                 "location": (,)
             }
         ],
@@ -221,7 +221,7 @@ CATS = {
                 "location": (,)
             },
             {
-                "name": "Daisy",
+                "name": "Hazel",
                 "beruf": "Künstlerin",
                 "qualities": ["nachlässig", "offen", "ängstlich"],
                 "rating": 3.5,
