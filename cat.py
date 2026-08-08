@@ -10,7 +10,7 @@ class Cat:
     image = pygame.image.load("assets/cats.nps/" + file).covert_alpha()
     cats.append(image)
 
-  def __init__(self, image, beruf, name, rating, qualities, location):
+  def __init__(self, image, name, beruf, qualities, rating, location):
     self._image = image
     self._name = name
     self._beruf = beruf
@@ -26,7 +26,7 @@ class Cat:
     for cat_data in CATS[level][location]:
       image = cls.cats[0]
 
-      cat = cls(image, cat_name["name"], cat_beruf["beruf"], cat_qualities["qualities"], cat_rating["rating"], cat_location["location"])
+      cat = cls(image, cat_data["name"], cat_data["beruf"], cat_data["qualities"], cat_data["rating"], cat_data["location"])
       cat_objects.append(cat)
    return cat_objects
 
