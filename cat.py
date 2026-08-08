@@ -3,7 +3,7 @@ import random
 import os
 from cat_data_nps import CATS
 
-class Cat:
+class cat:
 
   cats = []
   for file in os.listdir("assets/cats.nps"):
@@ -23,7 +23,7 @@ class Cat:
     for cat_data in CATS[level][location]:
       image = cls.cats[0]
 
-      cat = cls( image, cat_beruf
+      cat = cls(image, cat_beruf["beruf"], cat_name["name"], cat_rating["rating"], cat_qualities
 
   
     
