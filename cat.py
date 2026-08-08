@@ -11,10 +11,11 @@ class Cat:
     cats.append(image)
     cat = random.choice(cats)
 
-  def __init__(self, image, name, rating, qualities):
+  def __init__(self, image, beruf, name, rating, qualities):
     self._image = image
     self._name = name
     self._rating = rating
     self._qualities = qualities
+    self._beruf = beruf
     
     
