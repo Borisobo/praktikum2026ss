@@ -2,31 +2,31 @@ BOAT_LEVELS = {
     1: {
         "max_cats": 2,
         "speed": 3.0,
-        "upgrade_cost": 10
+        "upgrade_cost": 10,
         "image": "assets/boats/boat1.png"
     },
     2: {
         "max_cats": 4,
         "speed": 3.5,
-        "upgrade_cost": 20
+        "upgrade_cost": 20,
         "image": "assets/boats/boat2.png"
     },
     3: {
         "max_cats": 6,
         "speed": 4.0,
-        "upgrade_cost": 35
+        "upgrade_cost": 35,
         "image": "assets/boats/boat3.png"
     },
     4: {
         "max_cats": 8,
         "speed": 4.5,
-        "upgrade_cost": 50
+        "upgrade_cost": 50,
         "image": "assets/boats/boat4.png"
     },
     5: {
         "max_cats": 10,
         "speed": 5.0,
-        "upgrade_cost": None
+        "upgrade_cost": None,
         "image": "assets/boats/boat5.png"
     }
 }
@@ -37,6 +37,9 @@ class Boat :
     self.level = 1
     self.current_cats = []
 
+    self.x = float(x)
+    self.y = float(y)
+    
     self.load_level()
 
   def load_level(self):
