@@ -1,5 +1,6 @@
 import pygame
 from settings import WIDTH, HEIGHT
+from boat import Boat
 
 class Player:
     def __init__(self):
