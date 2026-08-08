@@ -5,34 +5,34 @@ CATS = {
             {
                 "name": "Felix",
                 "beruf": "Bibliothekar",
-                "eigenschaften": ["wissbegierig", "klug", "gedankenvoll"],
-                "qualities": 5.0
+                "qualities": ["wissbegierig", "klug", "gedankenvoll"],
+                "rating": 5.0
             },
             {
                 "name": "Luna",
                 "beruf": "Historikerin",
-                "eigenschaften": ["weise", "geduldig", "ruhig"],
-                "qualities": 4.5
+                "qualities": ["weise", "geduldig", "ruhig"],
+                "rating": 4.5
             },
             {
                 "name": "Oskar",
                 "beruf": "Lehrer",
-                "eigenschaften": ["kommunikativ", "verantwortungsbewusst", "freundlich"],
-                "qualities": 4.0
+                "qualities": ["kommunikativ", "verantwortungsbewusst", "freundlich"],
+                "rating": 4.0
             }
         ],
         "island1": [
             {
                 "name": "Milo",
                 "beruf": "Fischer",
-                "eigenschaften": ["mutig", "ausdauernd", "naturverbunden"],
-                "qualities": 4.5
+                "qualities": ["mutig", "ausdauernd", "naturverbunden"],
+                "rating": 4.5
             },
             {
                 "name": "Nala",
                 "beruf": "Gärtnerin",
-                "eigenschaften": ["fürsorglich", "optimistisch", "fleißig"],
-                "qualities": 3.5
+                "qualities": ["fürsorglich", "optimistisch", "fleißig"],
+                "rating": 3.5
             }
         ]
     },
@@ -42,20 +42,20 @@ CATS = {
             {
                 "name": "Simba",
                 "beruf": "Zimmermann",
-                "eigenschaften": ["stark", "zuverlässig", "zielstrebig"],
-                "qualities": 5.0
+                "qualities": ["stark", "zuverlässig", "zielstrebig"],
+                "rating": 5.0
             },
             {
                 "name": "Coco",
                 "beruf": "Bäckerin",
-                "eigenschaften": ["großzügig", "kreativ", "freundlich"],
-                "qualities": 4.5
+                "qualities": ["großzügig", "kreativ", "freundlich"],
+                "rating": 4.5
             },
             {
                 "name": "Leo",
                 "beruf": "Elektriker",
-                "eigenschaften": ["erfinderisch", "konzentriert", "intelligent"],
-                "qualities": 4.0
+                "qualities": ["erfinderisch", "konzentriert", "intelligent"],
+                "rating": 4.0
             }
         ],
 
@@ -63,40 +63,40 @@ CATS = {
             {
                 "name": "Max",
                 "beruf": "Verkäufer",
-                "eigenschaften": ["kommunikativ", "höflich", "geduldig"],
-                "qualities": 5.0
+                "qualities": ["kommunikativ", "höflich", "geduldig"],
+                "rating": 5.0
             },
             {
                 "name": "Bella",
                 "beruf": "Lagerarbeiterin",
-                "eigenschaften": ["organisiert", "ordentlich", "verantwortungsbewusst"],
-                "qualities": 4.5
+                "qualities": ["organisiert", "ordentlich", "verantwortungsbewusst"],
+                "rating": 4.5
             },
             {
                 "name": "Charly",
                 "beruf": "Kassierer",
-                "eigenschaften": ["ehrlich", "genau", "pünktlich"],
-                "qualities": 4.0
+                "qualities": ["ehrlich", "genau", "pünktlich"],
+                "rating": 4.0
             }
         ],
         "island3": [
             {
                 "name": "Lucy",
                 "beruf": "Fotografin",
-                "eigenschaften": ["kreativ", "aufmerksam", "neugierig"],
-                "qualities": 4.0
+                "qualities": ["kreativ", "aufmerksam", "neugierig"],
+                "rating": 4.0
             },
             {
                 "name": "Rocky",
                 "beruf": "Musiker",
-                "eigenschaften": ["humorvoll", "offen", "optimistisch"],
-                "qualities": 3.5
+                "qualities": ["humorvoll", "offen", "optimistisch"],
+                "rating": 3.5
             },
             {
                 "name": "Daisy",
                 "beruf": "Künstlerin",
-                "eigenschaften": ["fantasievoll", "sensibel", "unabhängig"],
-                "qualities": 3.0
+                "qualities": ["fantasievoll", "sensibel", "unabhängig"],
+                "rating": 3.0
             }
         ]
     }
@@ -107,60 +107,60 @@ CATS = {
             {
                 "name": "Bruno",
                 "beruf": "Kapitän",
-                "eigenschaften": ["mutig", "zuverlässig", "entschlossen"],
-                "qualities": 5.0
+                "qualities": ["mutig", "zuverlässig", "entschlossen"],
+                "rating": 5.0
             },
             {
                 "name": "Emma",
                 "beruf": "Navigatorin",
-                "eigenschaften": ["klug", "aufmerksam", "vorsichtig"],
-                "qualities": 4.5
+                "qualities": ["klug", "aufmerksam", "vorsichtig"],
+                "rating": 4.5
             },
             {
                 "name": "Finn",
                 "beruf": "Ingenieur",
-                "eigenschaften": ["erfinderisch", "intelligent", "konzentriert"],
-                "qualities": 4.0
+                "qualities": ["erfinderisch", "intelligent", "konzentriert"],
+                "rating": 4.0
             }
         ],
         "post": [
             {
                 "name": "Mia",
                 "beruf": "Postbotin",
-                "eigenschaften": ["pünktlich", "freundlich", "zuverlässig"],
-                "qualities": 5.0
+                "qualities": ["pünktlich", "freundlich", "zuverlässig"],
+                "rating": 5.0
             },
             {
                 "name": "Sammy",
                 "beruf": "Briefsortierer",
-                "eigenschaften": ["ordentlich", "genau", "geduldig"],
-                "qualities": 4.5
+                "qualities": ["ordentlich", "genau", "geduldig"],
+                "rating": 4.5
             },
             {
                 "name": "Kira",
                 "beruf": "Kurierin",
-                "eigenschaften": ["schnell", "mutig", "hilfsbereit"],
-                "qualities": 4.0
+                "qualities": ["schnell", "mutig", "hilfsbereit"],
+                "rating": 4.0
             }
         ],
         "lighthouse": [
             {
                 "name": "Atlas",
                 "beruf": "Leuchtturmwärter",
-                "eigenschaften": ["weise", "aufmerksam", "verantwortungsbewusst"],
-                "qualities": 5.0
+                "qualities": ["weise", "aufmerksam", "verantwortungsbewusst"],
+                "rating": 5.0
             },
             {
                 "name": "Ruby",
                 "beruf": "Architektin",
-                "eigenschaften": ["kreativ", "zielorientiert", "geduldig"],
-                "qualities": 3.5
+                "qualities": ["kreativ", "zielorientiert", "geduldig"],
+                "rating": 3.5
             },
             {
                 "name": "Oscar",
                 "beruf": "Handwerker",
-                "eigenschaften": ["fleißig", "ehrlich", "geschickt"],
-                "qualities": 3.0
+                "qualities": ["fleißig", "ehrlich", "geschickt"],
+                "rating": 3.0
             }
         ]
     },
@@ -171,54 +171,54 @@ CATS = {
             {
                 "name": "Molly",
                 "beruf": "Barista",
-                "eigenschaften": ["freundlich", "kommunikativ", "fröhlich"],
-                "qualities": 5.0
+                "qualities": ["freundlich", "kommunikativ", "fröhlich"],
+                "rating": 5.0
             },
             {
                 "name": "Gustav",
                 "beruf": "Konditor",
-                "eigenschaften": ["kreativ", "ordentlich", "geduldig"],
-                "qualities": 5.0
+                "qualities": ["kreativ", "ordentlich", "geduldig"],
+                "rating": 5.0
             },
             {
                 "name": "Mimi",
                 "beruf": "Kellnerin",
-                "eigenschaften": ["höflich", "schnell", "aufmerksam"],
-                "qualities": 4.5
+                "qualities": ["höflich", "schnell", "aufmerksam"],
+                "rating": 4.5
             }
         ],
         "island5": [
             {
                 "name": "Ben",
                 "beruf": "Fotograf",
-                "eigenschaften": ["neugierig", "kreativ", "aufmerksam"],
-                "qualities": 4.0
+                "qualities": ["neugierig", "kreativ", "aufmerksam"],
+                "rating": 4.0
             },
             {
                 "name": "Daisy",
                 "beruf": "Künstlerin",
-                "eigenschaften": ["fantasievoll", "offen", "optimistisch"],
-                "qualities": 3.5
+                "qualities": ["fantasievoll", "offen", "optimistisch"],
+                "rating": 3.5
             }
         ],
         "gym": [
             {
                 "name": "Rex",
                 "beruf": "Trainer",
-                "eigenschaften": ["diszipliniert", "zielstrebig", "sportlich"],
-                "qualities": 5.0
+                "qualities": ["diszipliniert", "zielstrebig", "sportlich"],
+                "rating": 5.0
             },
             {
                 "name": "Sunny",
                 "beruf": "Schwimmerin",
-                "eigenschaften": ["ausdauernd", "mutig", "sportlich"],
-                "qualities": 4.5
+                "qualities": ["ausdauernd", "mutig", "sportlich"],
+                "rating": 4.5
             },
             {
                 "name": "Hugo",
                 "beruf": "Rettungsschwimmer",
-                "eigenschaften": ["stark", "zuverlässig", "fürsorglich"],
-                "qualities": 4.0
+                "qualities": ["stark", "zuverlässig", "fürsorglich"],
+                "rating": 4.0
             }
         ]
     },
@@ -228,62 +228,62 @@ CATS = {
             {
                 "name": "Theo",
                 "beruf": "Forscher",
-                "eigenschaften": ["wissbegierig", "intelligent", "ausdauernd"],
-                "qualities": 4.5
+                "qualities": ["wissbegierig", "intelligent", "ausdauernd"],
+                "rating": 4.5
             },
             {
                 "name": "Rosie",
                 "beruf": "Tierpflegerin",
-                "eigenschaften": ["fürsorglich", "geduldig", "freundlich"],
-                "qualities": 4.5
+                "qualities": ["fürsorglich", "geduldig", "freundlich"],
+                "rating": 4.5
             }
         ],
         "greenhouse": [
             {
                 "name": "Flora",
                 "beruf": "Gärtnerin",
-                "eigenschaften": ["naturverbunden", "fleißig", "geduldig"],
-                "qualities": 5.0
+                "qualities": ["naturverbunden", "fleißig", "geduldig"],
+                "rating": 5.0
             },
             {
                 "name": "Ivy",
                 "beruf": "Botanikerin",
-                "eigenschaften": ["klug", "vorsichtig", "neugierig"],
-                "qualities": 4.5
+                "qualities": ["klug", "vorsichtig", "neugierig"],
+                "rating": 4.5
             },
             {
                 "name": "Basil",
                 "beruf": "Biologe",
-                "eigenschaften": ["intelligent", "ruhig", "verantwortungsbewusst"],
-                "qualities": 4.0
+                "qualities": ["intelligent", "ruhig", "verantwortungsbewusst"],
+                "rating": 4.0
             }
         ],
         "island7": [
             {
                 "name": "Shadow",
                 "beruf": "Jäger",
-                "eigenschaften": ["aufmerksam", "mutig", "entschlossen"],
-                "qualities": 3.5
+                "qualities": ["aufmerksam", "mutig", "entschlossen"],
+                "rating": 3.5
             },
             {
                 "name": "Peanut",
                 "beruf": "Schneider",
-                "eigenschaften": ["geschickt", "ordentlich", "kreativ"],
-                "qualities": 4.0
+                "qualities": ["geschickt", "ordentlich", "kreativ"],
+                "rating": 4.0
             },
             {
                 "name": "Snow",
                 "beruf": "Arzt",
-                "eigenschaften": ["hilfsbereit", "weise", "zuverlässig"],
-                "qualities": 5.0
+                "qualities": ["hilfsbereit", "weise", "zuverlässig"],
+                "rating": 5.0
             }
         ],
         "townhall": [
             {
                 "name": "Leopold",
                 "beruf": "Bürgermeister",
-                "eigenschaften": ["gerecht", "loyal", "diplomatisch"],
-                "qualities": 5.0
+                "qualities": ["gerecht", "loyal", "diplomatisch"],
+                "rating": 5.0
             }
         ]
     }
