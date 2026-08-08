@@ -162,7 +162,7 @@ CATS = {
                 "location": (,)
             }
         ],
-        "lighthouse": [
+        "island6": [
             {
                 "name": "Atlas",
                 "beruf": "Leuchtturmwärter",
@@ -212,7 +212,7 @@ CATS = {
                 "location": (,)
             }
         ],
-        "island6": [
+        "island7": [
             {
                 "name": "Ben",
                 "beruf": "Fotograf",
@@ -254,7 +254,7 @@ CATS = {
     },
     # ================= LEVEL 5 =================
     5: {
-        "island7": [
+        "island8": [
             {
                 "name": "Theo",
                 "beruf": "Forscher",
@@ -293,7 +293,7 @@ CATS = {
                 "location": (,)
             }
         ],
-        "island8": [
+        "island9": [
             {
                 "name": "Shadow",
                 "beruf": "Jäger",
