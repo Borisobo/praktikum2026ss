@@ -7,9 +7,8 @@ class Cat:
 
   cats = []
   for file in os.listdir("assets/cats.nps"):
-    image = pygame.image.load("assets/cats.nps" + file).covert_alpha()
+    image = pygame.image.load("assets/cats.nps/" + file).covert_alpha()
     cats.append(image)
-    cat = random.choice(cats)
 
   def __init__(self, image, beruf, name, rating, qualities):
     self._image = image
