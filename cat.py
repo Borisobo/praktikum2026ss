@@ -23,7 +23,7 @@ class Cat:
     for cat_data in CATS[level][location]:
       image = cls.cat[0]
 
-      cat = cls(
+      cat = cls( image, cat_beruf
 
   
     
