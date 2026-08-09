@@ -2,7 +2,7 @@ import pygame
 from settings import WIDTH, HEIGHT, FPS, TITLE
 from player import Player
 from level import Level
-
+from ui import UI
 
 class Game:
     def __init__(self):
@@ -13,6 +13,8 @@ class Game:
         self.player = Player()
 
         self.level = Level()
+        self.ui = UI(WIDTH, HEIGHT)
+        self.selected_cat = None
 
         self.water_tiles = [
             pygame.transform.scale(
