@@ -52,8 +52,5 @@ class Player:
         self.boat.y = self.y + 50
         self.boat.rect.center = (int(self.boat.x),int(self.boat.y))
 
-        
-        print(keys[pygame.K_UP], self.vy)
-
 
 
