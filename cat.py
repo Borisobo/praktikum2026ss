@@ -6,6 +6,7 @@ from cats_data_nps import CATS
 class Cat:
 
   cats = []
+  cat_index = 0
   for file in os.listdir("assets/cats.nps"):
     image = pygame.image.load("assets/cats.nps/" + file).convert_alpha()
     cats.append(image)
