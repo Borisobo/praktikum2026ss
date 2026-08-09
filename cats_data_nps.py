@@ -7,14 +7,14 @@ CATS = {
                 "beruf": "Bibliothekar",
                 "qualities": ["wissbegierig", "klug", "gedankenvoll"],
                 "rating": 5.0,
-                "location": (,)
+                "location": (530, 300 )
             },
             {
                 "name": "Luna",
                 "beruf": "Historikerin",
                 "qualities": ["weise", "geduldig", "ruhig"],
                 "rating": 4.5,
-                "location": (,)
+                "location": (470, 350)
             },
             {
                 "name": "Oskar",
