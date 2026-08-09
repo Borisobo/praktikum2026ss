@@ -25,6 +25,7 @@ class Cat:
     cat_objects = []
     for cat_data in CATS[level][location]:
       image = cls.cats[len(cat_objects)]
+      cls.cat_index += 1
 
       cat = cls(image, cat_data["name"], cat_data["beruf"], cat_data["qualities"], cat_data["rating"], cat_data["location"])
       cat_objects.append(cat)
