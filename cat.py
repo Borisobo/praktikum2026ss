@@ -7,7 +7,7 @@ class Cat:
 
   cats = []
   for file in os.listdir("assets/cats.nps"):
-    image = pygame.image.load("assets/cats.nps/" + file).covert_alpha()
+    image = pygame.image.load("assets/cats.nps/" + file).convert_alpha()
     cats.append(image)
 
   def __init__(self, image, name, beruf, qualities, rating, location):
