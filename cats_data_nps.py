@@ -7,21 +7,21 @@ CATS = {
                 "beruf": "Bibliothekar",
                 "qualities": ["wissbegierig", "klug", "gedankenvoll"],
                 "rating": 5.0,
-                "location": (530, 300 )
+                "location": (1180,450)
             },
             {
                 "name": "Luna",
                 "beruf": "Historikerin",
                 "qualities": ["weise", "geduldig", "ruhig"],
                 "rating": 4.5,
-                "location": (470, 350)
+                "location": (1300,470)
             },
             {
                 "name": "Oskar",
                 "beruf": "Lehrer",
                 "qualities": ["kommunikativ", "verantwortungsbewusst", "freundlich"],
                 "rating": 4.0,
-                "location": (0, 0)
+                "location": (1250,460)
             }
         ],
         "island2": [
@@ -30,17 +30,18 @@ CATS = {
                 "beruf": "Fischer",
                 "qualities": ["mutig", "ausdauernd", "naturverbunden"],
                 "rating": 4.5,
-                "location": (0, 0)
+                "location": (550, 560)
             },
             {
                 "name": "Nala",
                 "beruf": "Faulpelz",
                 "qualities": ["faul", "unhöflich", "impulsiv"],
                 "rating": 3.5,
-                "location": (0, 0)
+                "location": (400, 610)
             }
         ]
-    },
+    }
+},
     # ================= LEVEL 2 =================
     2: {
         "island3": [
