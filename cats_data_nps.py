@@ -21,7 +21,7 @@ CATS = {
                 "beruf": "Lehrer",
                 "qualities": ["kommunikativ", "verantwortungsbewusst", "freundlich"],
                 "rating": 4.0,
-                "location": (,)
+                "location": (0, 0)
             }
         ],
         "island2": [
@@ -30,14 +30,14 @@ CATS = {
                 "beruf": "Fischer",
                 "qualities": ["mutig", "ausdauernd", "naturverbunden"],
                 "rating": 4.5,
-                "location": (,)
+                "location": (0, 0)
             },
             {
                 "name": "Nala",
                 "beruf": "Faulpelz",
                 "qualities": ["faul", "unhöflich", "impulsiv"],
                 "rating": 3.5,
-                "location": (,)
+                "location": (0, 0)
             }
         ]
     },
@@ -49,21 +49,21 @@ CATS = {
                 "beruf": "Zimmermann",
                 "qualities": ["stark", "zuverlässig", "zielstrebig"],
                 "rating": 5.0,
-                "location": (,)
+                "location": (0, 0)
             },
             {
                 "name": "Coco",
                 "beruf": "Bäckerin",
                 "qualities": ["großzügig", "kreativ", "freundlich"],
                 "rating": 4.5,
-                "location": (,)
+                "location": (0, 0)
             },
             {
                 "name": "Leo",
                 "beruf": "Elektriker",
                 "qualities": ["erfinderisch", "konzentriert", "intelligent"],
                 "rating": 4.0,
-                "location": (,)
+                "location": (0, 0)
             }
         ],
 
@@ -73,14 +73,14 @@ CATS = {
                 "beruf": "Verkäufer",
                 "qualities": ["kommunikativ", "höflich", "geduldig"],
                 "rating": 5.0,
-                "location": (,)
+                "location": (0, 0)
             },
             {
                 "name": "Bella",
                 "beruf": "Lagerarbeiterin",
                 "qualities": ["organisiert", "ordentlich", "verantwortungsbewusst"],
                 "rating": 4.5,
-                "location": (,)
+                "location": (0, 0)
             },
             {
                 "name": "Charly",
