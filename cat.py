@@ -28,7 +28,7 @@ class Cat:
 
       cat = cls(image, cat_data["name"], cat_data["beruf"], cat_data["qualities"], cat_data["rating"], cat_data["location"])
       cat_objects.append(cat)
-   return cat_objects
+    return cat_objects
 
   
     
