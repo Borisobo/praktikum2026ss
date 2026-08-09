@@ -44,6 +44,7 @@ class Boat:
         self.x = float(x)
         self.y = float(y)
 
+
         self.load_level()
 
     def load_level(self):
@@ -52,10 +53,15 @@ class Boat:
         self.max_cats = stats["max_cats"]
         self.speed = stats["speed"]
         self.upgrade_cost = stats["upgrade_cost"]
-
         self.image = pygame.image.load(stats["image"]).convert_alpha()
+        bounding = self.image.get_bounding_rect()
+        self.image = self.image.subsurface(bounding).copy()
+
         self.image = pygame.transform.scale(self.image, (128, 100))
-        self.rect = self.image.get_rect(center=(self.x, self.y))
+
+        self.rect = self.image.get_rect(center=(int(self.x), int(self.y)))
+
+        self.mask = pygame.mask.from_surface(self.image)
 
     def upgrade(self):
         if self.level < 5:
@@ -77,5 +83,3 @@ class Boat:
 
     def draw(self, screen):
         screen.blit(self.image, self.rect)
-
-
