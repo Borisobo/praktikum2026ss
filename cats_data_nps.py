@@ -87,7 +87,7 @@ CATS = {
                 "beruf": "Kassierer",
                 "qualities": ["ehrlich", "genau", "pünktlich"],
                 "rating": 4.0,
-                "location": (,)
+                "location": (0, 0)
             }
         ],
         "island4": [
@@ -96,21 +96,21 @@ CATS = {
                 "beruf": "Fotografin",
                 "qualities": ["kreativ", "aufmerksam", "neugierig"],
                 "rating": 4.0,
-                "location": (,)
+                "location": (0, 0)
             },
             {
                 "name": "Rocky",
                 "beruf": "Unruhestifter",
                 "qualities": ["humorvoll", "stur", "unhöflich"],
                 "rating": 3.5,
-                "location": (,)
+                "location": (0, 0)
             },
             {
                 "name": "Daisy",
                 "beruf": "Betrüger",
                 "qualities": ["egoistisch", "unzuverlässig", "stur"],
                 "rating": 3.0,
-                "location": (,)
+                "location": (0, 0)
             }
         ]
     },
@@ -122,21 +122,21 @@ CATS = {
                 "beruf": "Kapitän",
                 "qualities": ["mutig", "zuverlässig", "entschlossen"],
                 "rating": 5.0,
-                "location": (,)
+                "location": (0, 0)
             },
             {
                 "name": "Emma",
                 "beruf": "Navigatorin",
                 "qualities": ["klug", "aufmerksam", "vorsichtig"],
                 "rating": 4.5,
-                "location": (,)
+                "location": (0, 0)
             },
             {
                 "name": "Finn",
                 "beruf": "Ingenieur",
                 "qualities": ["erfinderisch", "intelligent", "konzentriert"],
                 "rating": 4.0,
-                "location": (,)
+                "location": (0, 0)
             }
         ],
         "post": [
@@ -145,21 +145,21 @@ CATS = {
                 "beruf": "Postbotin",
                 "qualities": ["pünktlich", "freundlich", "zuverlässig"],
                 "rating": 5.0,
-                "location": (,)
+                "location": (0, 0)
             },
             {
                 "name": "Sammy",
                 "beruf": "Briefsortierer",
                 "qualities": ["ordentlich", "genau", "geduldig"],
                 "rating": 4.5,
-                "location": (,)
+                "location": (0, 0)
             },
             {
                 "name": "Kira",
                 "beruf": "Kurierin",
                 "qualities": ["schnell", "mutig", "hilfsbereit"],
                 "rating": 4.0,
-                "location": (,)
+                "location": (0, 0)
             }
         ],
         "island6": [
@@ -168,28 +168,28 @@ CATS = {
                 "beruf": "Leuchtturmwärter",
                 "qualities": ["weise", "aufmerksam", "verantwortungsbewusst"],
                 "rating": 5.0,
-                "location": (,)
+                "location": (0, 0)
             },
             {
                 "name": "Ruby",
                 "beruf": "Taschendieb",
                 "qualities": ["unmotiviert", "leichtsinnig", "hinterlistig"],
                 "rating": 3.0,
-                "location": (,)
+                "location": (0, 0)
             },
             {
                 "name": "Whisper",
                 "beruf": "Schatzsucher",
                 "qualities": ["geheimnisvoll", "neugierig", "vorsichtig"],
                 "rating": 4.0,
-                "location": (,)
+                "location": (0, 0)
             },
             {
                 "name": "Oscar",
                 "beruf": "Handwerker",
                 "qualities": ["unfreundlich", "misstrauisch", "pessimistisch"],
                 "rating": 3.5,
-                "location": (,)
+                "location": (0, 0)
             }
         ]
     },
