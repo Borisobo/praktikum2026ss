@@ -25,7 +25,7 @@ class Cat:
   def create_cat(cls, level, location):
     cat_objects = []
     for cat_data in CATS[level][location]:
-      image = cls.cats[len(cat_objects)]
+      image = cls.cats[cls.cat_index]
       cls.cat_index += 1
 
       cat = cls(image, cat_data["name"], cat_data["beruf"], cat_data["qualities"], cat_data["rating"], cat_data["location"])
