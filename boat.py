@@ -50,7 +50,7 @@ class Boat :
     self.upgrade_cost = stats["upgrade_cost"]
 
     self.image = pygame.image.load(stats["image"]).convert_alpha()
-    self.image = pygame.transform.scale(self.image,(256, 200))
+    self.image = pygame.transform.scale(self.image,(128, 100))
     self.rect = self.image.get_rect(center=(self.x, self.y))
 
   
