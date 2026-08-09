@@ -1,7 +1,6 @@
 import pygame 
-#import random
 from settings import HEIGHT , WIDTH
-#from cat import Cat
+from cat import Cat
 #from resource import Resource
 from strand import Island
 
