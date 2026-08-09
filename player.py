@@ -4,11 +4,11 @@ from boat import Boat
 
 class Player:
     def __init__(self):
-        self.image = pygame.image.load("assets/nyancat.png").convert_alpha()
+        self.image = pygame.image.load("assets/nyan_cat.png").convert_alpha()
         bounding = self.image.get_bounding_rect()
         self.image = self.image.subsurface(bounding).copy()
 
-        self.image = pygame.transform.scale(self.image, (80, 80))
+        self.image = pygame.transform.scale(self.image, (32, 25))
         self.mask = pygame.mask.from_surface(self.image)
 
         self.rect = self.image.get_rect(midbottom=(WIDTH//2, HEIGHT - 130))
