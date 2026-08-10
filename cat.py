@@ -15,6 +15,15 @@ class Cat:
         self._qualities = qualities
         self._rating = rating
         self._location = location
+        self.rect = self._image.get_rect(topleft=self._location)
+        self.is_taken = False
+    def get_info(self):
+        return {
+            "name": self._name,
+            "beruf": self._beruf,
+            "rating": self._rating,
+            "qualities": self._qualities
+        }
 
     @classmethod
     def create_cat(cls, level, location):
@@ -36,8 +45,11 @@ class Cat:
             cat_objects.append(cat)
 
         return cat_objects
+    def take(self):
+        self.is_taken = True
     def draw(self, screen):
-        screen.blit(self._image, self._location)
+        if not self.is_taken:
+            screen.blit(self._image, self.rect)
 
 
 
