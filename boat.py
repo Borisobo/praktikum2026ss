@@ -83,3 +83,9 @@ class Boat:
 
     def draw(self, screen):
         screen.blit(self.image, self.rect)
+
+        for i, cat in enumerate(self.current_cats):
+            cat_x = self.rect.x + 10 + i * 20
+            cat_y = self.rect.y - 10
+
+            screen.blit(cat._image, (cat_x, cat_y))
