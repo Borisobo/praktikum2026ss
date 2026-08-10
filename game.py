@@ -23,6 +23,12 @@ class Game:
         self.game_state = "intro"
         self.title_font = pygame.font.Font(None, 48)
         self.font = pygame.font.Font(None, 26)
+        self.lives = 3
+        self.invincible = False
+        self.invincible_timer = 0
+
+        self.heart_image = pygame.image.load("assets/hp.PNG").convert_alpha()
+        self.heart_image = pygame.transform.scale(self.heart_image, (40, 40))
 
         self.water_tiles = [
             pygame.transform.scale(
@@ -49,7 +55,9 @@ class Game:
         self.current_water = 0
         self.water_timer = 0
 
-
+    def draw_hearts(self):
+        for i in range(self.lives):
+            self.screen.blit(self.heart_image, (20 + i * 50, 20))
 
     def intro(self):
         self.screen.blit(
@@ -314,7 +322,8 @@ class Game:
                 self.level.draw(self.screen)
                 self.player.draw(self.screen)
                 self.intro()
-
+                self.draw_hearts()
+                
                 pygame.display.flip()
                 self.clock.tick(FPS)
                 continue
@@ -324,6 +333,7 @@ class Game:
                 self.level.draw(self.screen)
                 self.player.draw(self.screen)
                 self.mission()
+                self.draw_hearts() 
 
                 pygame.display.flip()
                 self.clock.tick(FPS)
@@ -339,11 +349,26 @@ class Game:
             self.player.update(keys)
             self.draw_water()
             self.level.check_boundaries(self.player)
+            
             if self.level.check_collision(self.player.boat):
                 self.player.x = old_x
                 self.player.y = old_y
                 self.player.rect.x = int(self.player.x)
                 self.player.rect.y = int(self.player.y)
+                #change
+            if self.level.check_obstacle_collision(self.player.boat):
+                if not self.invincible:
+                    self.lives -= 1
+                    self.invincible = True
+                    self.invincible_timer = 60
+
+                    if self.lives <= 0:
+                        self.game_state = "game_over"
+            if self.invincible:
+                self.invincible_timer -= 1
+                if self.invincible_timer <= 0:
+                    self.invincible = False
+                #might be in other place
             self.draw_water()
 
 
@@ -356,6 +381,7 @@ class Game:
                     self.selected_cat,
                     self.cat_message
                 )
+            self.draw_hearts() 
             pygame.display.flip()
             if self.message_timer > 0:
                 self.message_timer -= 1
