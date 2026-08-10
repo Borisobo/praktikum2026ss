@@ -8,6 +8,8 @@ from levels.level1 import islands
 from cat import Cat
 from boat import Boat
 from cats_data_nps import CATS
+from obstacle import Obstacle
+from obstacles_data import OBSTACLES
 
 
 class Level:
@@ -15,6 +17,7 @@ class Level:
         self.width = WIDTH
         self.height = HEIGHT
         self.islands = []
+        self.obstacles = []
 
         for island_data in islands:
             self.islands.append(
@@ -31,6 +34,11 @@ class Level:
         for island in self.islands:
             cats = Cat.create_cat(1, island.type)
             self.cats.extend(cats)
+
+        for obs in OBSTACLES[1]:   # пока уровень 1
+            obstacle = Obstacle(obs["image"],obs["x"],obs["y"],obs["width"],obs["height"])
+    self.obstacles.append(obstacle)
+
 
 
     # self.level_number = 1
