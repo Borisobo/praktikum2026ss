@@ -85,22 +85,22 @@ class Level:
                     return True
         return False
 
-    def get_nearby_cat(self, player):
-
+    def get_nearby_cat(self, boat):
         for cat in self.cats:
-
             if cat.is_taken:
                 continue
 
-            # Abstand zwischen Spieler und Katze prüfen
-
-            if player.rect.colliderect(cat.rect.inflate(40, 40)):
+            if boat.rect.colliderect(cat.rect.inflate(80, 80)):
                 return cat
 
         return None
+
+
     def take_cat(self, cat, boat):
-        if boat.has_free_space():
+        if cat._rating != 4.5:
+            return False
+        if boat.add_cat(cat):
             cat.take()
-            boat.take_cat(cat)
             return True
+
         return False
