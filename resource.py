@@ -4,7 +4,7 @@ class Resources:
     def __init__(self):
         self.fish = 0
 
-        self.fish_image = pygame.image.load("assets/probfish.png").convert_alpha()
+        self.fish_image = pygame.image.load("assets/fish.PNG").convert_alpha()
         self.fish_image = pygame.transform.scale(self.fish_image, (40, 40))
 
         self.font = pygame.font.Font(None, 32)
