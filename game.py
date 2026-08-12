@@ -31,27 +31,13 @@ class Game:
         self.heart_image = pygame.transform.scale(self.heart_image, (40, 40))
 
         self.water_tiles = [
-            pygame.transform.scale(
-                pygame.image.load("assets/waterbig1.PNG").convert(),
-                (WIDTH, HEIGHT)
-            ),
-            pygame.transform.scale(
-                pygame.image.load("assets/waterbig2.PNG").convert(),
-                (WIDTH, HEIGHT)
-            ),
-            pygame.transform.scale(
-                pygame.image.load("assets/waterbig3.PNG").convert(),
-                (WIDTH, HEIGHT)
-            ),
-            pygame.transform.scale(
-                pygame.image.load("assets/waterbig4.PNG").convert(),
-                (WIDTH, HEIGHT)
-            )
+            pygame.transform.scale(pygame.image.load("assets/waterbig1.PNG").convert(),(WIDTH, HEIGHT)),
+            pygame.transform.scale(pygame.image.load("assets/waterbig2.PNG").convert(),(WIDTH, HEIGHT)),
+            pygame.transform.scale(pygame.image.load("assets/waterbig3.PNG").convert(),(WIDTH, HEIGHT)),
+            pygame.transform.scale(pygame.image.load("assets/waterbig4.PNG").convert(),(WIDTH, HEIGHT))
         ]
         self.scroll_image = pygame.image.load("assets/cat_info.PNG").convert()
-        self.scroll_rect = self.scroll_image.get_rect(
-            center=(WIDTH // 2, HEIGHT // 2)
-        )
+        self.scroll_rect = self.scroll_image.get_rect(center=(WIDTH // 2, HEIGHT // 2))
         self.current_water = 0
         self.water_timer = 0
 
@@ -60,10 +46,7 @@ class Game:
             self.screen.blit(self.heart_image, (20 + i * 50, 20))
 
     def intro(self):
-        self.screen.blit(
-            self.scroll_image,
-            self.scroll_rect
-        )
+        self.screen.blit(self.scroll_image,self.scroll_rect)
 
         title_font = pygame.font.Font(None, 42)
         text_font = pygame.font.Font(None, 25)
@@ -71,16 +54,9 @@ class Game:
 
         center_x = self.scroll_rect.centerx
 
+        title = title_font.render("NYAN CAT: The Arc",True,(70, 45, 25))
 
-        title = title_font.render(
-            "NYAN CAT: The Arc",
-            True,
-            (70, 45, 25)
-        )
-
-        title_rect = title.get_rect(
-            center=(center_x, self.scroll_rect.top + 280)
-        )
+        title_rect = title.get_rect(center=(center_x, self.scroll_rect.top + 280))
 
         self.screen.blit(title, title_rect)
 
@@ -107,69 +83,36 @@ class Game:
                 y += 12
                 continue
 
-            text = text_font.render(
-                line,
-                True,
-                (70, 45, 25)
-            )
+            text = text_font.render(line,True,(70, 45, 25))
 
-            text_rect = text.get_rect(
-                center=(center_x, y)
-            )
+            text_rect = text.get_rect(center=(center_x, y))
 
             self.screen.blit(text, text_rect)
 
             y += 20
 
-        warning = text_font.render(
-            "ACHTUNG!",
-            True,
-            (150, 60, 30)
-        )
+        warning = text_font.render("ACHTUNG!",True,(150, 60, 30))
 
-        warning_rect = warning.get_rect(
-            center=(center_x, y + 20)
-        )
+        warning_rect = warning.get_rect(center=(center_x, y + 20))
 
         self.screen.blit(warning, warning_rect)
 
-        warning_text = small_font.render(
-            "Auf deinem Weg gibt es Hindernisse.",
-            True,
-            (70, 45, 25)
-        )
+        warning_text = small_font.render("Auf deinem Weg gibt es Hindernisse.",True,(70, 45, 25))
 
-        warning_text_rect = warning_text.get_rect(
-            center=(center_x, y + 50)
-        )
+        warning_text_rect = warning_text.get_rect(center=(center_x, y + 50))
 
         self.screen.blit(warning_text, warning_text_rect)
 
-        lives_text = small_font.render(
-            "Du hast nur 3 Leben!",
-            True,
-            (70, 45, 25)
-        )
+        lives_text = small_font.render("Du hast nur 3 Leben!",True,(70, 45, 25))
 
-        lives_rect = lives_text.get_rect(
-            center=(center_x, y + 77)
-        )
+        lives_rect = lives_text.get_rect(center=(center_x, y + 77))
 
         self.screen.blit(lives_text, lives_rect)
 
 
-        enter = text_font.render(
-            "ENTER - Weiter",
-            True,
-            (70, 120, 50)
-        )
+        enter = text_font.render("ENTER - Weiter",True,(70, 120, 50))
 
-        enter_rect = enter.get_rect(
-            center=(
-                center_x,
-                self.scroll_rect.bottom - 65
-            )
-        )
+        enter_rect = enter.get_rect(center=(center_x,self.scroll_rect.bottom - 65))
 
         self.screen.blit(enter, enter_rect)
 
@@ -179,25 +122,16 @@ class Game:
         self.draw_water()
         self.level.draw(self.screen)
         self.player.draw(self.screen)
-        self.screen.blit(
-            self.scroll_image,
-            self.scroll_rect
-        )
+        self.screen.blit(self.scroll_image,self.scroll_rect)
 
         title_font = pygame.font.Font(None, 42)
         text_font = pygame.font.Font(None, 25)
         small_font = pygame.font.Font(None, 22)
 
         center_x = self.scroll_rect.centerx
-        title = title_font.render(
-            "Level 1 Aufgabe",
-            True,
-            (70, 45, 25)
-        )
+        title = title_font.render("Level 1 Aufgabe",True,(70, 45, 25))
 
-        title_rect = title.get_rect(
-            center=(center_x, self.scroll_rect.top + 280)
-        )
+        title_rect = title.get_rect(center=(center_x, self.scroll_rect.top + 280))
 
         self.screen.blit(title, title_rect)
         lines = [
@@ -225,33 +159,18 @@ class Game:
 
             color = (150, 60, 30) if line == "ACHTUNG!" else (70, 45, 25)
 
-            text = text_font.render(
-                line,
-                True,
-                color
-            )
+            text = text_font.render(line,True,color)
 
-            text_rect = text.get_rect(
-                center=(center_x, y)
-            )
+            text_rect = text.get_rect(center=(center_x, y))
 
             self.screen.blit(text, text_rect)
 
             y += 27
 
-        #
-        enter = text_font.render(
-            "ENTER - Spiel starten",
-            True,
-            (70, 120, 50)
-        )
+        
+        enter = text_font.render("ENTER - Spiel starten",True,(70, 120, 50))
 
-        enter_rect = enter.get_rect(
-            center=(
-                center_x,
-                self.scroll_rect.bottom - 65
-            )
-        )
+        enter_rect = enter.get_rect(center=(center_x,self.scroll_rect.bottom - 65))
 
         self.screen.blit(enter, enter_rect)
 
@@ -288,10 +207,7 @@ class Game:
                         if self.cat_menu_open:
 
                             if self.selected_cat:
-                                success = self.level.take_cat(
-                                    self.selected_cat,
-                                    self.player.boat
-                                )
+                                success = self.level.take_cat(self.selected_cat,self.player.boat)
 
                                 if success:
 
@@ -376,11 +292,7 @@ class Game:
             self.player.draw(self.screen)
 
             if self.cat_menu_open and self.selected_cat:
-                self.ui.draw_cat_info(
-                    self.screen,
-                    self.selected_cat,
-                    self.cat_message
-                )
+                self.ui.draw_cat_info(self.screen,self.selected_cat,self.cat_message)
             self.draw_hearts() 
             pygame.display.flip()
             if self.message_timer > 0:
@@ -389,26 +301,13 @@ class Game:
                 self.message = ""
 
             if self.message:
-                message_surface = self.ui.font.render(
-                    self.message,
-                    True,
-                    (255, 255, 255)
-                )
+                message_surface = self.ui.font.render(self.message,True,(255, 255, 255))
 
-                message_rect = message_surface.get_rect(
-                    center=(WIDTH // 2, 100)
-                )
+                message_rect = message_surface.get_rect(center=(WIDTH // 2, 100))
 
-                pygame.draw.rect(
-                    self.screen,
-                    (40, 40, 40),
-                    message_rect.inflate(40, 20)
-                )
+                pygame.draw.rect(self.screen,(40, 40, 40),message_rect.inflate(40, 20))
 
-                self.screen.blit(
-                    message_surface,
-                    message_rect
-                )
+                self.screen.blit(message_surface,message_rect)
             self.water_timer += self.clock.get_time()
             self.clock.tick(FPS)
 
