@@ -55,12 +55,5 @@ class UI:
 
         if message:
             message_surface = self.font.render(message, True, (180, 50, 40))
-
-            message_rect = message_surface.get_rect(
-                center=(center_x, scroll_rect.bottom - 25)
-            )
-
-            screen.blit(
-                message_surface,
-                message_rect
-            )
+            message_rect = message_surface.get_rect(center=(center_x, scroll_rect.bottom - 25))
+            screen.blit(message_surface, message_rect)
