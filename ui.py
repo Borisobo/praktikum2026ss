@@ -17,10 +17,7 @@ class UI:
             "assets/cat_info.PNG"
         ).convert()
         # Размер свитка
-        scroll_image = pygame.transform.scale(
-            scroll_image,
-            (700, 700)
-        )
+        scroll_image = pygame.transform.scale(scroll_image, (700, 700))
 
         scroll_rect = scroll_image.get_rect(
             center=(WIDTH // 2, HEIGHT // 2)
