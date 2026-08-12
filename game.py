@@ -105,7 +105,6 @@ class Game:
         self.screen.blit(enter, enter_rect)
 
     def mission(self):
-
         self.draw_water()
         self.level.draw(self.screen)
         self.player.draw(self.screen)
