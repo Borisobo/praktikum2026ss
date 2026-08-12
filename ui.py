@@ -13,47 +13,24 @@ class UI:
         self.big_font = pygame.font.Font(None, 42)
 
     def draw_cat_info(self, screen, cat, message=""):
-        scroll_image = pygame.image.load(
-            "assets/cat_info.PNG"
-        ).convert()
+        scroll_image = pygame.image.load("assets/cat_info.PNG").convert()
         # Размер свитка
         scroll_image = pygame.transform.scale(scroll_image, (700, 700))
 
         scroll_rect = scroll_image.get_rect(center=(WIDTH // 2, HEIGHT // 2))
-
         screen.blit(scroll_image, scroll_rect)
 
         info = cat.get_info()
 
         center_x = scroll_rect.centerx
 
+        name_text = self.big_font.render(info["name"], True, (70, 45, 25))
+        name_rect = name_text.get_rect(center=(center_x, scroll_rect.top + 175))
+        screen.blit(name_text, name_rect)
 
 
-        name_text = self.big_font.render(
-            info["name"],
-            True,
-            (70, 45, 25)
-        )
-
-        name_rect = name_text.get_rect(
-            center=(center_x, scroll_rect.top + 175)
-        )
-
-        screen.blit(
-            name_text,
-            name_rect
-        )
-
-
-        beruf_text = self.font.render(
-            "Beruf: " + info["beruf"],
-            True,
-            (70, 45, 25)
-        )
-
-        beruf_rect = beruf_text.get_rect(
-            center=(center_x, scroll_rect.top + 235)
-        )
+        beruf_text = self.font.render("Beruf: " + info["beruf"], True, (70, 45, 25))
+        beruf_rect = beruf_text.get_rect(center=(center_x, scroll_rect.top + 235))
 
         screen.blit(
             beruf_text,
