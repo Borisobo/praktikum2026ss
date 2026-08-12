@@ -12,7 +12,7 @@ class Player:
         self.image = pygame.transform.scale(self.image, (55, 40))
         self.mask = pygame.mask.from_surface(self.image)
 
-        self.rect = self.image.get_rect(midbottom=(WIDTH // 2, HEIGHT - 130))
+        self.rect = self.image.get_rect(midbottom=(WIDTH // 2, HEIGHT - 220))
         self.x = float(self.rect.x)
         self.y = float(self.rect.y)
         self.vx = 0
@@ -51,4 +51,3 @@ class Player:
         self.boat.y = self.y + 50
         self.boat.rect.center = (int(self.boat.x), int(self.boat.y))
 
-        print(keys[pygame.K_UP], self.vy)
