@@ -36,6 +36,7 @@ class Game:
             pygame.transform.scale(pygame.image.load("assets/waterbig3.PNG").convert(),(WIDTH, HEIGHT)),
             pygame.transform.scale(pygame.image.load("assets/waterbig4.PNG").convert(),(WIDTH, HEIGHT))
         ]
+        
         self.scroll_image = pygame.image.load("assets/cat_info.PNG").convert()
         self.scroll_rect = self.scroll_image.get_rect(center=(WIDTH // 2, HEIGHT // 2))
         self.current_water = 0
