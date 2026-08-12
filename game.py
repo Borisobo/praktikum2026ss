@@ -56,14 +56,12 @@ class Game:
         center_x = self.scroll_rect.centerx
 
         title = title_font.render("NYAN CAT: The Arc",True,(70, 45, 25))
-
         title_rect = title.get_rect(center=(center_x, self.scroll_rect.top + 280))
-
         self.screen.blit(title, title_rect)
 
         lines = [
-            ""
-            ""
+            "",
+            "",
             "In der Welt der kleinen Katzen",
             "ist eine schreckliche Überschwemmung",
             "ausgebrochen.",
@@ -85,38 +83,26 @@ class Game:
                 continue
 
             text = text_font.render(line,True,(70, 45, 25))
-
             text_rect = text.get_rect(center=(center_x, y))
-
             self.screen.blit(text, text_rect)
 
             y += 20
 
         warning = text_font.render("ACHTUNG!",True,(150, 60, 30))
-
         warning_rect = warning.get_rect(center=(center_x, y + 20))
-
         self.screen.blit(warning, warning_rect)
 
         warning_text = small_font.render("Auf deinem Weg gibt es Hindernisse.",True,(70, 45, 25))
-
         warning_text_rect = warning_text.get_rect(center=(center_x, y + 50))
-
         self.screen.blit(warning_text, warning_text_rect)
 
         lives_text = small_font.render("Du hast nur 3 Leben!",True,(70, 45, 25))
-
         lives_rect = lives_text.get_rect(center=(center_x, y + 77))
-
         self.screen.blit(lives_text, lives_rect)
 
-
         enter = text_font.render("ENTER - Weiter",True,(70, 120, 50))
-
         enter_rect = enter.get_rect(center=(center_x,self.scroll_rect.bottom - 65))
-
         self.screen.blit(enter, enter_rect)
-
 
     def mission(self):
 
