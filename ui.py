@@ -19,9 +19,7 @@ class UI:
         # Размер свитка
         scroll_image = pygame.transform.scale(scroll_image, (700, 700))
 
-        scroll_rect = scroll_image.get_rect(
-            center=(WIDTH // 2, HEIGHT // 2)
-        )
+        scroll_rect = scroll_image.get_rect(center=(WIDTH // 2, HEIGHT // 2))
 
         screen.blit(scroll_image, scroll_rect)
 
