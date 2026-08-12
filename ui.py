@@ -31,27 +31,11 @@ class UI:
 
         beruf_text = self.font.render("Beruf: " + info["beruf"], True, (70, 45, 25))
         beruf_rect = beruf_text.get_rect(center=(center_x, scroll_rect.top + 235))
-
-        screen.blit(
-            beruf_text,
-            beruf_rect
-        )
-
-
-        rating_text = self.font.render(
-            "Bewertung: " + str(info["rating"]),
-            True,
-            (70, 45, 25)
-        )
-
-        rating_rect = rating_text.get_rect(
-            center=(center_x, scroll_rect.top + 280)
-        )
-
-        screen.blit(
-            rating_text,
-            rating_rect
-        )
+        screen.blit(beruf_text, beruf_rect)
+        
+        rating_text = self.font.render("Bewertung: " + str(info["rating"]), True, (70, 45, 25))
+        rating_rect = rating_text.get_rect(center=(center_x, scroll_rect.top + 280))
+        screen.blit(rating_text, rating_rect)
 
 
         qualities = ", ".join(info["qualities"])
