@@ -156,6 +156,7 @@ class Game:
 
     def draw_water(self):
         self.screen.blit(self.water_tiles[self.current_water], (0, 0))
+        
     def run(self):
         self.running = True
 
