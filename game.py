@@ -115,11 +115,11 @@ class Game:
         small_font = pygame.font.Font(None, 22)
 
         center_x = self.scroll_rect.centerx
+        
         title = title_font.render("Level 1 Aufgabe",True,(70, 45, 25))
-
         title_rect = title.get_rect(center=(center_x, self.scroll_rect.top + 280))
-
         self.screen.blit(title, title_rect)
+        
         lines = [
             "Rette Katzen von allen Inseln.",
             "",
@@ -138,7 +138,6 @@ class Game:
         y = self.scroll_rect.top + 400
 
         for line in lines:
-
             if line == "":
                 y += 12
                 continue
@@ -146,20 +145,14 @@ class Game:
             color = (150, 60, 30) if line == "ACHTUNG!" else (70, 45, 25)
 
             text = text_font.render(line,True,color)
-
             text_rect = text.get_rect(center=(center_x, y))
-
             self.screen.blit(text, text_rect)
 
             y += 27
 
-        
         enter = text_font.render("ENTER - Spiel starten",True,(70, 120, 50))
-
         enter_rect = enter.get_rect(center=(center_x,self.scroll_rect.bottom - 65))
-
         self.screen.blit(enter, enter_rect)
-
 
     def draw_water(self):
         self.screen.blit(self.water_tiles[self.current_water], (0, 0))
