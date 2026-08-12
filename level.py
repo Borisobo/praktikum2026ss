@@ -121,7 +121,11 @@ class Level:
 
     def check_obstacle_collision(self, boat):
         for obstacle in self.obstacles:
-            if boat.rect.colliderect(obstacle.rect):
+            if not boat.rect.colliderect(obstacle.rect):
+                continue
+            offset_x = obstacle.rect.x - boat.rect.x
+            offset_y = obstacle.rect.y - boat.rect.y
+            if boat.mask.overlap(obstacle.mask, (offset_x, offset_y)):
                 return True
         return False
 
