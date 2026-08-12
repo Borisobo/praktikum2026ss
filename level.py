@@ -8,7 +8,7 @@ from levels.level1 import islands
 from cat import Cat
 from boat import Boat
 from cats_data_nps import CATS
-from obstacle import Obstacle
+from obstacles import Obstacle
 from obstacles_data import OBSTACLES
 
 
@@ -17,8 +17,6 @@ class Level:
         self.width = WIDTH
         self.height = HEIGHT
         self.islands = []
-        self.obstacles = []
-
         for island_data in islands:
             self.islands.append(
                 Island(
@@ -31,13 +29,28 @@ class Level:
                 )
             )
         self.cats = []
+        self.catlocations = set()
         for island in self.islands:
             cats = Cat.create_cat(1, island.type)
             self.cats.extend(cats)
 
-        for obs in OBSTACLES[1]:   # пока уровень 1
-            obstacle = Obstacle(obs["image"],obs["x"],obs["y"],obs["width"],obs["height"])
-    self.obstacles.append(obstacle)
+        self.obstacles = []
+        self.finishflag_rect = pygame.Rect(1400, 700, 150, 150)
+        for obstacle_data in OBSTACLES[1]:
+            obstacle = Obstacle(
+                obstacle_data["image"],
+                obstacle_data["x"],
+                obstacle_data["y"],
+                obstacle_data["width"],
+                obstacle_data["height"]
+            )
+
+            self.obstacles.append(obstacle)
+
+        self.finish_flag = pygame.image.load("assets/finishflag.png").convert_alpha()
+
+        self.finish_flag = pygame.transform.scale(self.finish_flag,(100, 100))
+        self.finish_flag_rect = self.finish_flag.get_rect(center=(400, 300))
 
 
 
@@ -79,8 +92,13 @@ class Level:
     def draw(self, screen):
         for island in self.islands:
             island.draw(screen)
-            for cat in self.cats:
-                cat.draw(screen)
+
+        for obstacle in self.obstacles:
+            obstacle.draw(screen)
+
+        for cat in self.cats:
+            cat.draw(screen)
+        screen.blit(self.finish_flag, self.finish_flag_rect)
 
     def check_collision(self, boat):
 
@@ -97,18 +115,31 @@ class Level:
         for cat in self.cats:
             if cat.is_taken:
                 continue
-
             if boat.rect.colliderect(cat.rect.inflate(80, 80)):
                 return cat
-
         return None
 
+    def check_obstacle_collision(self, boat):
+        for obstacle in self.obstacles:
+            if boat.rect.colliderect(obstacle.rect):
+                return True
+        return False
 
     def take_cat(self, cat, boat):
-        if cat._rating != 4.5:
-            return False
+
         if boat.add_cat(cat):
             cat.take()
+            self.catlocations.add(cat._location)
             return True
-
         return False
+    def finishlev(self, boat):
+        return boat.rect.colliderect(self.finish_flag_rect)
+    def check_mission(self):
+        resc = 0
+        for cat in self.cats:
+            if cat.is_taken:
+                if cat._rating < 4.5:
+                    return False
+                resc += 1
+
+        return resc >= 2
