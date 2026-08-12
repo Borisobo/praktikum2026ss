@@ -23,10 +23,7 @@ class UI:
             center=(WIDTH // 2, HEIGHT // 2)
         )
 
-        screen.blit(
-            scroll_image,
-            scroll_rect
-        )
+        screen.blit(scroll_image, scroll_rect)
 
         info = cat.get_info()
 
