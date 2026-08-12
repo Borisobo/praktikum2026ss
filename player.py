@@ -5,7 +5,7 @@ from boat import Boat
 
 class Player:
     def __init__(self):
-        self.image = pygame.image.load("assets/nyancat.png")
+        self.image = pygame.image.load("assets/nyan_cat.png")
         bounding = self.image.get_bounding_rect()
         self.image = self.image.subsurface(bounding).copy()
 
