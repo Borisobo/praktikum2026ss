@@ -181,34 +181,21 @@ class Game:
                         self.selected_cat = None
                         self.cat_message = ""
 
-                    # E
                     elif event.key == pygame.K_e:
-
                         if self.cat_menu_open:
-
                             if self.selected_cat:
                                 success = self.level.take_cat(self.selected_cat,self.player.boat)
-
                                 if success:
-
                                     self.cat_message = "Katze aufgenommen!"
                                     self.selected_cat = None
                                     self.cat_menu_open = False
-
                                 else:
-
-                                    self.cat_message = (
-                                        "Diese Katze passt nicht zur Aufgabe!"
-                                    )
+                                    self.cat_message = ("Diese Katze passt nicht zur Aufgabe!")
 
                         else:
-
-                            cat = self.level.get_nearby_cat(
-                                self.player.boat
-                            )
+                            cat = self.level.get_nearby_cat(self.player.boat)
 
                             if cat:
-
                                 self.selected_cat = cat
                                 self.cat_menu_open = True
                                 self.cat_message = ""
@@ -237,7 +224,7 @@ class Game:
 
             if self.water_timer > 800:
                 self.water_timer = 0
-                self.current_water = (self.current_water + 1) % 2
+                self.current_water = (self.current_water + 1) 
 
             keys = pygame.key.get_pressed()
             old_x = self.player.x
