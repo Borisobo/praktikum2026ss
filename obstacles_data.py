@@ -2,12 +2,12 @@ OBSTACLES = {
     1: [  # LEVEL 1
         {
             "image": "assets/obstacles/obst1.PNG",
-            "x": 800, "y": 500,
+            "x": 700, "y": 400,
             "width": 120, "height": 120
         },
         {
             "image": "assets/obstacles/obst2.PNG",
-            "x": 1400, "y": 700,
+            "x": 950, "y": 650,
             "width": 150, "height": 80
         }
     ],
