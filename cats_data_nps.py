@@ -64,7 +64,7 @@ CATS = {
                 "beruf": "Elektriker",
                 "qualities": ["erfinderisch", "konzentriert", "intelligent"],
                 "rating": 4.0,
-                "location": (565, 875)
+                "location": (540, 875)
             }
         ],
 
@@ -81,14 +81,14 @@ CATS = {
                 "beruf": "Lagerarbeiterin",
                 "qualities": ["organisiert", "ordentlich", "verantwortungsbewusst"],
                 "rating": 4.5,
-                "location": (1235, 400)
+                "location": (1235, 380)
             },
             {
                 "name": "Charly",
                 "beruf": "Kassierer",
                 "qualities": ["ehrlich", "genau", "pünktlich"],
                 "rating": 4.0,
-                "location": (1515, 400)
+                "location": (1500, 400)
             }
         ],
 
@@ -112,7 +112,7 @@ CATS = {
                 "beruf": "Betrüger",
                 "qualities": ["egoistisch", "unzuverlässig", "stur"],
                 "rating": 3.0,
-                "location": (1535, 775)
+                "location": (1300, 725)
             }
         ]
     },
