@@ -214,41 +214,41 @@ class Game:
 
         self.game_state = "mission"
         
-def restart_level(self):
-    self.player.boat.current_cats = [
-        cat
-        for cat in self.player.boat.current_cats
-        if cat._level != self.current_level
-    ]
+    def restart_level(self):
+        self.player.boat.current_cats = [
+            cat
+            for cat in self.player.boat.current_cats
+            if cat._level != self.current_level
+        ]
 
-    self.level = Level(self.current_level)
+        self.level = Level(self.current_level)
 
-    spawn_x, spawn_y = self.level.level_spawn[self.current_level]
+        spawn_x, spawn_y = self.level.level_spawn[self.current_level]
 
-    self.player.x = spawn_x
-    self.player.y = spawn_y
+        self.player.x = spawn_x
+        self.player.y = spawn_y
 
-    self.player.rect.x = int(self.player.x)
-    self.player.rect.y = int(self.player.y)
+        self.player.rect.x = int(self.player.x)
+        self.player.rect.y = int(self.player.y)
 
-    self.player.boat.x = self.player.x
-    self.player.boat.y = self.player.y + 50
+        self.player.boat.x = self.player.x
+        self.player.boat.y = self.player.y + 50
 
-    self.player.boat.rect.center = (
-        int(self.player.boat.x),
-        int(self.player.boat.y)
-    )
+        self.player.boat.rect.center = (
+            int(self.player.boat.x),
+            int(self.player.boat.y)
+        )
 
-    self.selected_cat = None
-    self.cat_menu_open = False
-    self.cat_message = ""
+        self.selected_cat = None
+        self.cat_menu_open = False
+        self.cat_message = ""
 
-    self.lives = 3
-    self.invincible = False
-    self.invincible_timer = 0
-    self.cooldown = 0
+        self.lives = 3
+        self.invincible = False
+        self.invincible_timer = 0
+        self.cooldown = 0
 
-    self.game_state = "playing"
+        self.game_state = "playing"
 
     def draw_game_won(self):
 
