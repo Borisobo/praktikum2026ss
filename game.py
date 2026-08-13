@@ -182,18 +182,15 @@ class Game:
     def draw_water(self):
         self.screen.blit(self.water_tiles[self.current_water], (0, 0))
 
-
     def next_level(self):
-            if self.current_level < 5:
-                self.current_level += 1
-                self.level = Level(self.current_level)
-                self.player.boat.upgrade()
-                self.game_state = "mission"
-            else:
-                self.game_state = "game_won"
+        if self.current_level >= 5:
+            self.game_state = "game_won"
+            return
+
         self.current_level += 1
         self.player.boat.upgrade()
         self.level = Level(self.current_level)
+
         spawn_x, spawn_y = self.level.level_spawn[self.current_level]
 
         self.player.x = spawn_x
@@ -209,32 +206,33 @@ class Game:
         self.selected_cat = None
         self.cat_menu_open = False
         self.cat_message = ""
-        self.lives = 3
 
+        self.lives = 3
+        self.cooldown = 0
         self.invincible = False
         self.invincible_timer = 0
 
-        self.cooldown = 0
-
-        self.game_state = "playing"
+        self.game_state = "mission"
 
     def restart_level(self):
-
         self.player = Player()
-
         self.level = Level(self.current_level)
 
+        spawn_x, spawn_y = self.level.level_spawn[self.current_level]
+        self.player.x = spawn_x
+        self.player.y = spawn_y
+        self.player.rect.x = int(self.player.x)
+        self.player.rect.y = int(self.player.y)
+        self.player.boat.x = self.player.x
+        self.player.boat.y = self.player.y + 50
+        self.player.boat.rect.center = (int(self.player.boat.x), int(self.player.boat.y))
         self.selected_cat = None
         self.cat_menu_open = False
         self.cat_message = ""
-
         self.lives = 3
-
         self.invincible = False
         self.invincible_timer = 0
-
         self.cooldown = 0
-
         self.game_state = "playing"
 
     def draw_game_won(self):
@@ -284,59 +282,37 @@ class Game:
                     continue
 
                 if self.game_state == "mission":
-
                     if event.type == pygame.KEYDOWN:
-
                         if event.key == pygame.K_RETURN:
                             self.game_state = "playing"
-
                     continue
 
                 if self.game_state == "level_complete":
-
                     if event.type == pygame.KEYDOWN:
-
                         if event.key == pygame.K_RETURN:
                             self.next_level()
-
                     continue
 
                 if self.game_state == "game_over":
-
                     if event.type == pygame.KEYDOWN:
-
                         if event.key == pygame.K_RETURN:
                             self.restart_level()
-
                     continue
-
                 if self.game_state == "game_won":
-
                     if event.type == pygame.KEYDOWN:
-
                         if event.key == pygame.K_RETURN:
                             self.running = False
-
                     continue
-
                 if event.type == pygame.KEYDOWN:
-
                     if event.key == pygame.K_ESCAPE:
-
                         self.cat_menu_open = False
                         self.selected_cat = None
                         self.cat_message = ""
-
                     elif event.key == pygame.K_e:
-
                         if self.cat_menu_open:
-
                             if self.selected_cat:
-
                                 success = self.level.take_cat(self.selected_cat, self.player.boat)
-
                                 if success:
-
                                     self.cat_message = "Katze aufgenommen!"
 
                                     self.selected_cat = None
