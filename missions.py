@@ -5,7 +5,7 @@ AUFGABEN = {
             "Rette mindestens 2 Katzen.",
             "",
             "Jede Katze muss eine Bewertung",
-            "von 4.5 oder höher haben.",
+            "von 4.1 oder höher haben.",
             "",
             "Bringe die Katzen zum Zielflag."
         ]
@@ -15,12 +15,12 @@ AUFGABEN = {
         "aufgabe":  [
         "Auf der Insel gibt es nicht genug Essen.",
         "",
-        "Außerdem gibt es Probleme mit dem Strom.",
+        "Außerdem gibt es Probleme bei neue Pakete im Lager",
         "",
         "Der durchschnittliche Katzen-Rating",
-        "muss über 4.0 liegen.",
+        "muss über 4.2 liegen.",
         "",
-        "Du hast eine verbessertes Boat mit drei neuen Plätzen",
+        "Du hast eine verbessertes Boat Plätzen",
         '',
         "Löse die Probleme der Insel!"
         ]
@@ -38,7 +38,7 @@ AUFGABEN = {
             "um beide Probleme zu lösen.",
             "",
             "Die durchschnittliche Bewertung",
-            "muss über 4.0 liegen.",
+            "muss über 4.3 liegen.",
         ]
     },
 
@@ -51,7 +51,7 @@ AUFGABEN = {
             "und im Fitnessstudio gibt es Chaos.",
             "",
             "Die durchschnittliche Bewertung",
-            "muss über 4.0 liegen.",
+            "muss über 4.4 liegen.",
             "",
             "Bring Ordnung auf die Insel!"
             ]
@@ -67,7 +67,7 @@ AUFGABEN = {
             "",
             "",
             "Die durchschnittliche Bewertung",
-            "muss über 4.0 liegen.",
+            "muss über 4.5 liegen.",
             "",
             "Bringe alle geretteten Katzen",
             "zum Zielflag.",
