@@ -18,50 +18,18 @@ from obstacles_data import OBSTACLES
 class Level:
 
     def __init__(self, level_number=1):
-
-        # ==========================================
-        # ОСНОВНЫЕ ДАННЫЕ
-        # ==========================================
-
         self.width = WIDTH
         self.height = HEIGHT
-
-        # Номер текущего уровня
         self.level_number = level_number
-
-        # Списки объектов текущего уровня
         self.islands = []
         self.cats = []
         self.obstacles = []
-
-        # Локации котов
         self.catlocations = set()
 
-        # ==========================================
-        # ОСТРОВА
-        # ==========================================
-
-        LEVEL_ISLANDS = {
-            1: level1_islands,
-            2: level2_islands,
-            3: level3_islands,
-            4: level4_islands,
-            5: level5_islands
-        }
-
-        # Проверяем, существует ли такой уровень
+        LEVEL_ISLANDS = {1: level1_islands, 2: level2_islands, 3: level3_islands, 4: level4_islands, 5: level5_islands}
         if level_number not in LEVEL_ISLANDS:
-            raise ValueError(
-                f"Уровень {level_number} не существует"
-            )
-
-        # Получаем острова текущего уровня
+            raise ValueError(f"Уровень {level_number} не существует")
         current_islands = LEVEL_ISLANDS[level_number]
-
-        # ==========================================
-        # СОЗДАЁМ ОСТРОВА
-        # ==========================================
-
         for island_data in current_islands:
 
             island = Island(
@@ -70,27 +38,16 @@ class Level:
                 island_data["x"],
                 island_data["y"],
                 island_data["width"],
-                island_data["height"]
+                island_data["height"],
             )
 
             self.islands.append(island)
 
-        # ==========================================
-        # СОЗДАЁМ КОТОВ
-        # ==========================================
-
         for island in self.islands:
 
-            cats = Cat.create_cat(
-                level_number,
-                island.type
-            )
+            cats = Cat.create_cat(level_number, island.type)
 
             self.cats.extend(cats)
-
-        # ==========================================
-        # СОЗДАЁМ ПРЕПЯТСТВИЯ
-        # ==========================================
 
         if level_number in OBSTACLES:
 
@@ -101,31 +58,18 @@ class Level:
                     obstacle_data["x"],
                     obstacle_data["y"],
                     obstacle_data["width"],
-                    obstacle_data["height"]
+                    obstacle_data["height"],
                 )
 
                 self.obstacles.append(obstacle)
 
-        # ==========================================
-        # ФЛАГ ФИНИША
-        # ==========================================
 
-        self.finish_flag = pygame.image.load(
-            "assets/finishflag.png"
-        ).convert_alpha()
+        self.finish_flag = pygame.image.load("assets/finishflag.png").convert_alpha()
 
-        self.finish_flag = pygame.transform.scale(
-            self.finish_flag,
-            (100, 100)
-        )
+        self.finish_flag = pygame.transform.scale(self.finish_flag, (100, 100))
 
-        self.finish_flag_rect = self.finish_flag.get_rect(
-            center=(400, 300)
-        )
+        self.finish_flag_rect = self.finish_flag.get_rect(center=(400, 300))
 
-    # ==========================================
-    # ГРАНИЦЫ КАРТЫ
-    # ==========================================
 
     def check_boundaries(self, boat):
 
@@ -140,38 +84,22 @@ class Level:
 
         if boat.rect.bottom > self.height:
             boat.rect.bottom = self.height
-
-        # Синхронизируем координаты
         boat.x = boat.rect.x
         boat.y = boat.rect.y
 
-    # ==========================================
-    # ОТРИСОВКА
-    # ==========================================
-
     def draw(self, screen):
 
-        # Острова
         for island in self.islands:
             island.draw(screen)
 
-        # Препятствия
         for obstacle in self.obstacles:
             obstacle.draw(screen)
 
-        # Коты текущего уровня
         for cat in self.cats:
             cat.draw(screen)
 
-        # Флаг
-        screen.blit(
-            self.finish_flag,
-            self.finish_flag_rect
-        )
 
-    # ==========================================
-    # СТОЛКНОВЕНИЕ С ОСТРОВАМИ
-    # ==========================================
+        screen.blit(self.finish_flag, self.finish_flag_rect)
 
     def check_collision(self, boat):
 
@@ -179,32 +107,16 @@ class Level:
 
             if boat.rect.colliderect(island.rect):
 
-                offset_x = (
-                    island.rect.x -
-                    boat.rect.x
-                )
+                offset_x = island.rect.x - boat.rect.x
 
-                offset_y = (
-                    island.rect.y -
-                    boat.rect.y
-                )
+                offset_y = island.rect.y - boat.rect.y
 
-                offset = (
-                    offset_x,
-                    offset_y
-                )
+                offset = (offset_x, offset_y)
 
-                if boat.mask.overlap(
-                    island.mask,
-                    offset
-                ):
+                if boat.mask.overlap(island.mask, offset):
                     return True
 
         return False
-
-    # ==========================================
-    # ПОИСК БЛИЖАЙШЕГО КОТА
-    # ==========================================
 
     def get_nearby_cat(self, boat):
 
@@ -215,16 +127,11 @@ class Level:
             if cat.is_taken:
                 continue
 
-            if boat.rect.colliderect(
-                cat.rect.inflate(80, 80)
-            ):
+            if boat.rect.colliderect(cat.rect.inflate(80, 80)):
                 return cat
 
         return None
 
-    # ==========================================
-    # СТОЛКНОВЕНИЕ С ПРЕПЯТСТВИЯМИ
-    # ==========================================
 
     def check_obstacle_collision(self, boat):
         for obstacle in self.obstacles:
@@ -237,71 +144,48 @@ class Level:
                 return True
         return False
 
-    # ==========================================
-    # ЗАБРАТЬ КОТА
-    # ==========================================
 
     def take_cat(self, cat, boat):
-
-        # Пытаемся добавить кота на лодку
         if boat.add_cat(cat):
-
-            # Кот теперь спасён
             cat.take()
-
-            # Запоминаем его локацию
-            self.catlocations.add(
-                cat._location
-            )
+            self.catlocations.add(cat._location)
 
             return True
 
         return False
 
-    # ==========================================
-    # ПРОВЕРКА ФИНИША
-    # ==========================================
 
     def finishlev(self, boat):
 
-        return boat.rect.colliderect(
-            self.finish_flag_rect
-        )
+        return boat.rect.colliderect(self.finish_flag_rect)
 
-    # ==========================================
-    # ПРОВЕРКА ЗАДАНИЯ
-    # ==========================================
-    #
-    # ВАЖНО:
-    #
-    # Здесь мы НЕ проверяем self.cats.
-    #
-    # self.cats = коты ТЕКУЩЕГО уровня.
-    #
-    # Нам нужно проверить ВСЕХ котов,
-    # которые находятся на лодке.
-    #
-    # Поэтому используем:
-    #
-    # boat.current_cats
-    #
-    # ==========================================
 
     def check_mission(self, boat):
-
-        # На лодке должно быть минимум 2 кота
-        if len(boat.current_cats) < 2:
+        cats = boat.current_cats
+        if not cats:
             return False
-
-        # Проверяем каждого кота на лодке
-        for cat in boat.current_cats:
-
-            # Если хотя бы у одного кота
-            # рейтинг меньше 4.5,
-            # уровень провален
-            if cat._rating < 4.5:
+        if self.level_number == 1:
+            return (len(cats) >= 2 and all(cat._rating >= 4.5 for cat in cats))
+        if self.level_number == 2:
+            if len(cats) < 2:
                 return False
+            avg_rate = sum(cat._rating for cat in cats) / len(cats)
+            baker = any(cat._beruf == "Bäckerin" for cat in cats)
+            elektrik = any(cat._beruf == "Elektriker" for cat in cats)
+            return (avg_rate >= 4.5 and baker and elektrik)
+        if self.level_number == 3:
+            avg_rate = sum(cat._rating for cat in cats) / len(cats)
+            handwerker = any(cat._beruf == "Handwerker" for cat in cats)
+            konzentration = any("konzentriert" in cat._qualities or "aufmerksam" in cat._qualities for cat in cats)
+            return (avg_rate >= 4.0 and handwerker and konzentration)
+        if self.level_number == 4:
+            avg_rate = sum(cat._rating for cat in cats) / len(cats)
+            fitnes = any(cat._beruf == "Trainer" for cat in cats)
+            kellner  = any(cat._beruf == "Kellnerin" for cat in cats)
+            barista = any(cat._beruf == "Barista" for cat in cats)
+            return (avg_rate >= 4.0 and fitnes and kellner and barista)
+        if self.level_number == 5:
+            avg_rate = sum(cat._rating for cat in cats) / len(cats)
+            buergermeister = any(cat._beruf == "Bürgermeister" for cat in cats)
+            return (avg_rate >= 4.0 and buergermeister)
 
-        # Если мы дошли сюда,
-        # значит все коты подходят
-        return True
