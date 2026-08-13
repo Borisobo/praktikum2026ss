@@ -174,32 +174,33 @@ class Level:
         return boat.rect.colliderect(self.finish_flag_rect)
 
 
-    def check_mission(self, boat):
+      def check_mission(self, boat):
         cats = boat.current_cats
         if not cats:
             return False
         if self.level_number == 1:
-            return (len(cats) >= 2 and all(cat._rating >= 4.5 for cat in cats))
+            return (len(cats) >= 2 and all(cat._rating >= 4.1 for cat in cats))
         if self.level_number == 2:
             if len(cats) < 2:
                 return False
             avg_rate = sum(cat._rating for cat in cats) / len(cats)
-            baker = any(cat._beruf == "Bäckerin" for cat in cats)
+            lager = any(cat._beruf == "Lagerarbeiterin" for cat in cats)
             elektrik = any(cat._beruf == "Elektriker" for cat in cats)
-            return (avg_rate >= 4.5 and baker and elektrik)
+            return (avg_rate >= 4.2 and lager and elektrik)
         if self.level_number == 3:
             avg_rate = sum(cat._rating for cat in cats) / len(cats)
             handwerker = any(cat._beruf == "Handwerker" for cat in cats)
             konzentration = any("konzentriert" in cat._qualities or "aufmerksam" in cat._qualities for cat in cats)
-            return (avg_rate >= 4.0 and handwerker and konzentration)
+            return (avg_rate >= 4.3 and handwerker and konzentration)
         if self.level_number == 4:
             avg_rate = sum(cat._rating for cat in cats) / len(cats)
             fitnes = any(cat._beruf == "Trainer" for cat in cats)
             kellner  = any(cat._beruf == "Kellnerin" for cat in cats)
             barista = any(cat._beruf == "Barista" for cat in cats)
-            return (avg_rate >= 4.0 and fitnes and kellner and barista)
+            return (avg_rate >= 4.4 and fitnes and kellner and barista)
         if self.level_number == 5:
             avg_rate = sum(cat._rating for cat in cats) / len(cats)
             buergermeister = any(cat._beruf == "Bürgermeister" for cat in cats)
-            return (avg_rate >= 4.0 and buergermeister)
+            return (avg_rate >= 4.5 and buergermeister)
+
 
