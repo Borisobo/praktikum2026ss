@@ -10,6 +10,12 @@ from levels.level3 import islands as level3_islands
 from levels.level4 import islands as level4_islands
 from levels.level5 import islands as level5_islands
 
+from levels.level1 import spawn as level1_spawn
+from levels.level2 import spawn as level2_spawn
+from levels.level3 import spawn as level3_spawn 
+from levels.level4 import spawn as level4_spawn
+from levels.level5 import spawn as level5_spawn
+
 from cat import Cat
 from obstacles import Obstacle
 from obstacles_data import OBSTACLES
@@ -18,6 +24,14 @@ from obstacles_data import OBSTACLES
 class Level:
 
     def __init__(self, level_number=1):
+
+        self.level_spawn = {
+                    1: level1_spawn,
+                    2: level2_spawn,
+                    3: level3_spawn,
+                    4: level4_spawn,
+                    5: level5_spawn,
+                }
         self.width = WIDTH
         self.height = HEIGHT
         self.level_number = level_number
@@ -26,10 +40,10 @@ class Level:
         self.obstacles = []
         self.catlocations = set()
 
-        LEVEL_ISLANDS = {1: level1_islands, 2: level2_islands, 3: level3_islands, 4: level4_islands, 5: level5_islands}
-        if level_number not in LEVEL_ISLANDS:
+        self.level_islands = {1: level1_islands, 2: level2_islands, 3: level3_islands, 4: level4_islands, 5: level5_islands}
+        if level_number not in self.level_islands:
             raise ValueError(f"Уровень {level_number} не существует")
-        current_islands = LEVEL_ISLANDS[level_number]
+        current_islands = self.level_islands[level_number]
         for island_data in current_islands:
 
             island = Island(
