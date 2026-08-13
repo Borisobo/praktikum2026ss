@@ -14,14 +14,14 @@ CATS = {
                 "beruf": "Historikerin",
                 "qualities": ["weise", "geduldig", "ruhig"],
                 "rating": 4.5,
-                "location": (1300, 470)
+                "location": (1300, 480)
             },
             {
                 "name": "Oskar",
                 "beruf": "Lehrer",
-                "qualities": ["kommunikativ", "verantwortlich", "freundlich"],
+                "qualities": ["kommunikativ", "verantwortungsbewusst", "freundlich"],
                 "rating": 4.0,
-                "location": (1250, 460)
+                "location": (1250, 480)
             }
         ],
         "island2": [
@@ -143,7 +143,7 @@ CATS = {
             }
         ],
 
-        "post": [
+        "postoffice": [
             {
                 "name": "Mia",
                 "beruf": "Postbotin",
@@ -193,7 +193,7 @@ CATS = {
                 "name": "Oscar",
                 "beruf": "Handwerker",
                 "qualities": ["unfreundlich", "misstrauisch", "pessimistisch"],
-                "rating": 3.5,
+                "rating": 3.8,
                 "location": (1340, 770)
             }
         ]
