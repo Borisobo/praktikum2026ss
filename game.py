@@ -184,7 +184,6 @@ class Game:
 
 
     def next_level(self):
-        def next_level(self):
             if self.current_level < 5:
                 self.current_level += 1
                 self.level = Level(self.current_level)
@@ -195,10 +194,17 @@ class Game:
         self.current_level += 1
         self.player.boat.upgrade()
         self.level = Level(self.current_level)
-        self.player.x = 100
-        self.player.y = 100
+        spawn_x, spawn_y = self.level.level_spawn[self.current_level]
+
+        self.player.x = spawn_x
+        self.player.y = spawn_y
+
         self.player.rect.x = int(self.player.x)
         self.player.rect.y = int(self.player.y)
+
+        self.player.boat.x = self.player.x
+        self.player.boat.y = self.player.y + 50
+        self.player.boat.rect.center = (int(self.player.boat.x), int(self.player.boat.y))
 
         self.selected_cat = None
         self.cat_menu_open = False
