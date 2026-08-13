@@ -215,7 +215,6 @@ class Game:
         self.game_state = "mission"
 
     def restart_level(self):
-        self.player = Player()
         self.level = Level(self.current_level)
 
         spawn_x, spawn_y = self.level.level_spawn[self.current_level]
