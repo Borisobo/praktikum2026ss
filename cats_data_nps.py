@@ -19,7 +19,7 @@ CATS = {
             {
                 "name": "Oskar",
                 "beruf": "Lehrer",
-                "qualities": ["kommunikativ", "verantwortungsbewusst", "freundlich"],
+                "qualities": ["kommunikativ", "verantwortlich", "freundlich"],
                 "rating": 4.0,
                 "location": (1250, 460)
             }
