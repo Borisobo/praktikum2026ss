@@ -39,20 +39,21 @@ class Cat:
                 image = pygame.image.load("assets/cats.nps/" + file).convert_alpha()
                 image = pygame.transform.scale(image, (40, 50))
                 cls.cats.append(image)
-
         cat_objects = []
-        for cat_data in CATS[level][location]:
-            image = cls.cats[cls.cat_index]
-            cls.cat_index += 1
+        for index, cat_data in enumerate(CATS[level][location]):
+
+            image = cls.cats[index % len(cls.cats)]
+
             cat = cls(
                 image,
                 cat_data["name"],
                 cat_data["beruf"],
                 cat_data["qualities"],
                 cat_data["rating"],
-                cat_data["location"],
-                level
+                cat_data["location"]
             )
+
+            cat._level = level
             cat_objects.append(cat)
 
         return cat_objects
