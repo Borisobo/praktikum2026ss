@@ -16,9 +16,9 @@ class Cat:
         self._qualities = qualities
         self._rating = rating
         self._location = location
-        self._level = level
         self.rect = self._image.get_rect(topleft=self._location)
         self.is_taken = False
+        self._level = None
 
     def get_info(self):
 
