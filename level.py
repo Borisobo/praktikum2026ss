@@ -174,7 +174,7 @@ class Level:
         return boat.rect.colliderect(self.finish_flag_rect)
 
 
-      def check_mission(self, boat):
+    def check_mission(self, boat):
         cats = boat.current_cats
         if not cats:
             return False
