@@ -248,7 +248,7 @@ class Game:
         self.invincible_timer = 0
         self.cooldown = 0
 
-        self.game_state = "playing"
+        self.game_state = "mission"
 
     def draw_game_won(self):
 
