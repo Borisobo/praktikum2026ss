@@ -1,74 +1,336 @@
 import pygame
+from settings import WIDTH, HEIGHT, FPS, TITLE
+from player import Player
+from level import Level
+from ui import UI
+from missions import AUFGABEN
 
 
-BOAT_LEVELS = {
-    1: {"max_cats": 3, "speed": 3.0, "upgrade_cost": 10, "image": "assets/boats/boat1.png"},
-    2: {"max_cats": 7, "speed": 3.5, "upgrade_cost": 20, "image": "assets/boats/boat2.png"},
-    3: {"max_cats": 11, "speed": 4.0, "upgrade_cost": 35, "image": "assets/boats/boat3.png"},
-    4: {"max_cats": 15, "speed": 4.5, "upgrade_cost": 50, "image": "assets/boats/boat4.png"},
-    5: {"max_cats": 19, "speed": 5.0, "upgrade_cost": None, "image": "assets/boats/boat5.png"}
-}
+class Game:
+    def __init__(self):
+        pygame.init()
+        self.screen = pygame.display.set_mode((WIDTH, HEIGHT))
+        pygame.display.set_caption(TITLE)
+        self.clock = pygame.time.Clock()
+        self.ui = UI(WIDTH, HEIGHT)
 
+        self.current_level = 1
+        self.level = Level(1)
+        self.player = Player()
 
-class Boat:
-    def __init__(self, x, y, level=1):
-        self.level = level
-        self.current_cats = []
-        self.x = float(x)
-        self.y = float(y)
-        self.load_level()
+        self.selected_cat = None
+        self.cat_menu_open = False
+        self.cat_message = ""
+        self.message = ""
+        self.message_timer = 0
+        self.game_state = "intro"
 
-    def load_level(self):
-        stats = BOAT_LEVELS[self.level]
+        self.lives = 3
+        self.invincible = False
+        self.invincible_timer = 0
+        self.cooldown = 0
 
-        self.max_cats = stats["max_cats"]
-        self.speed = stats["speed"]
-        self.upgrade_cost = stats["upgrade_cost"]
+        self.water_tiles = [
+            pygame.transform.scale(
+                pygame.image.load(f"assets/waterbig{i}.PNG").convert(),
+                (WIDTH, HEIGHT)
+            )
+            for i in range(1, 5)
+        ]
+        self.current_water = 0
+        self.water_timer = 0
 
-        image = pygame.image.load(stats["image"]).convert_alpha()
-        image = image.subsurface(image.get_bounding_rect()).copy()
+        self.scroll_image = pygame.image.load(
+            "assets/cat_info.PNG"
+        ).convert_alpha()
+        self.scroll_image = pygame.transform.scale(
+            self.scroll_image, (800, 900)
+        )
+        self.scroll_rect = self.scroll_image.get_rect(
+            center=(WIDTH // 2, HEIGHT // 2)
+        )
 
-        width = 180 + (self.level - 1) * 55
-        height = 130 + (self.level - 1) * 40
+    def intro(self):
+        self.screen.blit(self.scroll_image, self.scroll_rect)
+        title_font = pygame.font.Font(None, 42)
+        text_font = pygame.font.Font(None, 25)
+        small_font = pygame.font.Font(None, 22)
+        center = self.scroll_rect.centerx
 
-        self.image = pygame.transform.scale(image, (width, height))
-        self.rect = self.image.get_rect(center=(int(self.x), int(self.y)))
-        self.mask = pygame.mask.from_surface(self.image)
+        title = title_font.render("NYAN CAT: The Arc", True, (70, 45, 25))
+        self.screen.blit(
+            title, title.get_rect(center=(center, self.scroll_rect.top + 280))
+        )
 
-    def upgrade(self):
-        if self.level >= 5:
-            return False
+        lines = [
+            "In der Welt der kleinen Katzen",
+            "ist eine schreckliche Überschwemmung",
+            "ausgebrochen.",
+            "",
+            "Das Wasser steigt immer weiter.",
+            "Viele Katzen sitzen auf ihren Inseln fest.",
+            "",
+            "Du bist ein mutiger Katzenretter.",
+            "Mit deinem Floß machst du dich auf den Weg,",
+            "um die Katzen zu retten."
+        ]
 
-        self.level += 1
-        self.load_level()
-        return True
+        y = self.scroll_rect.top + 350
+        for line in lines:
+            if not line:
+                y += 12
+                continue
+            text = text_font.render(line, True, (70, 45, 25))
+            self.screen.blit(text, text.get_rect(center=(center, y)))
+            y += 20
 
-    def has_free_space(self):
-        return len(self.current_cats) < self.max_cats
+        for text, offset, color, font in [
+            ("ACHTUNG!", 20, (150, 60, 30), text_font),
+            ("Auf deinem Weg gibt es Hindernisse.", 50, (70, 45, 25), small_font),
+            ("Du hast nur 3 Leben!", 77, (70, 45, 25), small_font),
+            ("ENTER - Weiter", self.scroll_rect.bottom - self.scroll_rect.top - 165,
+             (70, 120, 50), text_font)
+        ]:
+            surface = font.render(text, True, color)
+            y_pos = y + offset if offset < 100 else self.scroll_rect.top + offset
+            self.screen.blit(surface, surface.get_rect(center=(center, y_pos)))
 
-    def add_cat(self, cat):
-        if not self.has_free_space():
-            return False
+    def mission(self):
+        self.draw_water()
+        self.level.draw(self.screen)
+        self.player.draw(self.screen, self.current_level)
+        self.screen.blit(self.scroll_image, self.scroll_rect)
 
-        self.current_cats.append(cat)
-        return True
+        title_font = pygame.font.Font(None, 42)
+        text_font = pygame.font.Font(None, 25)
+        center = self.scroll_rect.centerx
+        mission = AUFGABEN[self.current_level]
 
-    def draw(self, screen):
-        screen.blit(self.image, self.rect)
+        title = title_font.render(
+            mission["lev_aufgaben"], True, (70, 45, 25)
+        )
+        self.screen.blit(
+            title, title.get_rect(center=(center, self.scroll_rect.top + 280))
+        )
 
-        if self.level <= 2:
-            y, x = 25, 0
-        elif self.level == 3:
-            y, x = 65, 0
-        elif self.level == 4:
-            y, x = 85, 0
-        else:
-            y, x = 115, 15
+        y = self.scroll_rect.top + 400
+        for line in mission["aufgabe"]:
+            if not line:
+                y += 12
+                continue
+            color = (150, 60, 30) if line == "ACHTUNG!" else (70, 45, 25)
+            text = text_font.render(line, True, color)
+            self.screen.blit(text, text.get_rect(center=(center, y)))
+            y += 27
 
-        for i, cat in enumerate(self.current_cats):
-            row, col = divmod(i, 10)
+        text = text_font.render(
+            "ENTER - Spiel starten", True, (70, 120, 50)
+        )
+        self.screen.blit(
+            text,
+            text.get_rect(center=(center, self.scroll_rect.bottom - 165))
+        )
 
-            cat_x = self.rect.x + 15 + x + col * 17
-            cat_y = self.rect.y + y + row * 25
+    def draw_water(self):
+        self.screen.blit(self.water_tiles[self.current_water], (0, 0))
 
-            screen.blit(cat._image, (cat_x, cat_y))
+    def next_level(self):
+        if self.current_level >= 5:
+            self.game_state = "game_won"
+            return
+
+        self.current_level += 1
+        self.player.boat.level = self.current_level
+        self.player.boat.load_level()
+        self.level = Level(self.current_level)
+
+        x, y = self.level.level_spawn[self.current_level]
+        self.player.x, self.player.y = x, y
+        self.player.rect.topleft = (int(x), int(y))
+
+        self.player.boat.x = x
+        self.player.boat.y = y + 50
+        self.player.boat.rect.center = (int(x), int(y + 50))
+
+        self.selected_cat = None
+        self.cat_menu_open = False
+        self.cat_message = ""
+        self.lives = 3
+        self.cooldown = 0
+        self.invincible = False
+        self.invincible_timer = 0
+        self.game_state = "mission"
+
+    def restart_level(self):
+        self.player.boat.current_cats = [
+            cat for cat in self.player.boat.current_cats
+            if cat._level != self.current_level
+        ]
+
+        self.level = Level(self.current_level)
+
+        x, y = self.level.level_spawn[self.current_level]
+        self.player.x, self.player.y = x, y
+        self.player.rect.topleft = (int(x), int(y))
+
+        self.player.boat.x = x
+        self.player.boat.y = y + 50
+        self.player.boat.rect.center = (int(x), int(y + 50))
+
+        self.selected_cat = None
+        self.cat_menu_open = False
+        self.cat_message = ""
+        self.lives = 3
+        self.cooldown = 0
+        self.invincible = False
+        self.invincible_timer = 0
+        self.game_state = "mission"
+
+    def draw_game_won(self):
+        self.draw_water()
+        big = pygame.font.Font(None, 60)
+        small = pygame.font.Font(None, 30)
+
+        for text, y, font, color in [
+            ("DU HAST GEWONNEN!", HEIGHT // 2 - 50, big, (70, 120, 50)),
+            ("Alle 5 Level abgeschlossen!", HEIGHT // 2 + 20, small, (70, 45, 25)),
+            ("ENTER - Beenden", HEIGHT // 2 + 80, small, (70, 120, 50))
+        ]:
+            surface = font.render(text, True, color)
+            self.screen.blit(
+                surface, surface.get_rect(center=(WIDTH // 2, y))
+            )
+
+    def run(self):
+        self.running = True
+
+        while self.running:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    self.running = False
+
+                if self.game_state == "intro":
+                    if event.type == pygame.KEYDOWN and event.key == pygame.K_RETURN:
+                        self.game_state = "mission"
+                    continue
+
+                if self.game_state == "mission":
+                    if event.type == pygame.KEYDOWN and event.key == pygame.K_RETURN:
+                        self.game_state = "playing"
+                    continue
+
+                if self.game_state == "level_complete":
+                    if event.type == pygame.KEYDOWN and event.key == pygame.K_RETURN:
+                        self.next_level()
+                    continue
+
+                if self.game_state == "game_over":
+                    if event.type == pygame.KEYDOWN and event.key == pygame.K_RETURN:
+                        self.restart_level()
+                    continue
+
+                if self.game_state == "game_won":
+                    if event.type == pygame.KEYDOWN and event.key == pygame.K_RETURN:
+                        self.running = False
+                    continue
+
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_ESCAPE:
+                        self.cat_menu_open = False
+                        self.selected_cat = None
+                        self.cat_message = ""
+
+                    elif event.key == pygame.K_e:
+                        if self.cat_menu_open and self.selected_cat:
+                            if self.level.take_cat(
+                                self.selected_cat, self.player.boat
+                            ):
+                                self.cat_message = "Katze aufgenommen!"
+                                self.selected_cat = None
+                                self.cat_menu_open = False
+                            else:
+                                self.cat_message = "Floß ist voll!"
+
+                        elif self.level.finishlev(self.player.boat):
+                            self.game_state = (
+                                "level_complete"
+                                if self.level.check_mission(self.player.boat)
+                                else "game_over"
+                            )
+
+                        else:
+                            cat = self.level.get_nearby_cat(self.player.boat)
+                            if cat:
+                                self.selected_cat = cat
+                                self.cat_menu_open = True
+                                self.cat_message = ""
+
+            if self.game_state == "intro":
+                self.draw_water()
+                self.level.draw(self.screen)
+                self.player.draw(self.screen, self.current_level)
+                self.intro()
+
+            elif self.game_state == "mission":
+                self.mission()
+                self.ui.draw_hearts(self.screen, self.lives)
+
+            elif self.game_state == "level_complete":
+                self.draw_water()
+                self.level.draw(self.screen)
+                self.player.draw(self.screen, self.current_level)
+                self.ui.draw_level_complete(self.screen)
+
+            elif self.game_state == "game_over":
+                self.draw_water()
+                self.level.draw(self.screen)
+                self.player.draw(self.screen, self.current_level)
+                self.ui.draw_game_over(self.screen)
+
+            elif self.game_state == "game_won":
+                self.draw_game_won()
+
+            else:
+                if self.water_timer > 800:
+                    self.water_timer = 0
+                    self.current_water = (self.current_water + 1) % 4
+
+                old_x, old_y = self.player.x, self.player.y
+                self.player.update(pygame.key.get_pressed())
+                self.level.check_boundaries(self.player)
+
+                if self.level.check_collision(self.player.boat):
+                    self.player.x, self.player.y = old_x, old_y
+                    self.player.rect.topleft = (int(old_x), int(old_y))
+
+                if self.cooldown > 0:
+                    self.cooldown -= 1
+
+                if self.level.check_obstacle_collision(self.player.boat):
+                    self.player.x, self.player.y = old_x, old_y
+                    self.player.rect.topleft = (int(old_x), int(old_y))
+
+                    if self.cooldown == 0:
+                        self.lives -= 1
+                        self.cooldown = 60
+                        if self.lives <= 0:
+                            self.game_state = "game_over"
+
+                self.draw_water()
+                self.level.draw(self.screen)
+                self.player.draw(self.screen, self.current_level)
+
+                if self.cat_menu_open and self.selected_cat:
+                    self.ui.draw_cat_info(
+                        self.screen,
+                        self.selected_cat,
+                        self.cat_message
+                    )
+
+                self.ui.draw_hearts(self.screen, self.lives)
+
+            pygame.display.flip()
+            self.water_timer += self.clock.get_time()
+            self.clock.tick(FPS)
+
+        pygame.quit()
