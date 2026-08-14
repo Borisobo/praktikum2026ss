@@ -41,7 +41,7 @@ OBSTACLES = {
     4: [ # LEVEL 4
         {
             "image": "assets/obstacles/obst2.PNG",
-            "x": 1300, "y": 850,
+            "x": 1000, "y": 550,
             "width": 130, "height": 130
         },
         {
@@ -59,10 +59,9 @@ OBSTACLES = {
         },
         {
             "image": "assets/obstacles/obst5.PNG",
-            "x": 1400, "y": 550,
+            "x": 1100, "y": 550,
             "width": 160, "height": 160
         }
     ]
 }
-
 
