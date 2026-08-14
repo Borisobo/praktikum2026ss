@@ -40,7 +40,8 @@ BOAT_LEVELS = {
 
 
 class Boat:
-
+    BASE_WIDTH = 128
+    BASE_HEIGHT = 100
     def __init__(self, x, y, level=1):
 
         self.level = level
@@ -78,10 +79,13 @@ class Boat:
         ).copy()
 
         # Размер лодки
+       width = Boat.BASE_WIDTH + (self.level - 1) * 10
+        height = Boat.BASE_HEIGHT + (self.level - 1) * 10
+
         self.image = pygame.transform.scale(
-            self.image,
-            (128, 100)
-        )
+        self.image,
+        (width, height))
+
 
         # Положение лодки
         self.rect = self.image.get_rect(
