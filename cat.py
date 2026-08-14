@@ -29,50 +29,30 @@ class Cat:
 
     @classmethod
     def create_cat(cls, level, location):
-
         if not cls.cats:
-            files = sorted(os.listdir("assets/cats.nps"))
+            for file in sorted(os.listdir("assets/cats.nps")):
+                image = pygame.image.load("assets/cats.nps/" + file).convert_alpha()
+                cls.cats.append(pygame.transform.scale(image, (40, 50)))
 
-            for file in files:
-                image = pygame.image.load(
-                    "assets/cats.nps/" + file
-                ).convert_alpha()
-
-                image = pygame.transform.scale(
-                    image,
-                    (40, 50)
-                )
-
-                cls.cats.append(image)
-
-        start_index = 0
+        start = sum(len(CATS[l][i]) for l in range(1, level) for i in CATS[l])
 
         for island in CATS[level]:
             if island == location:
                 break
+            start += len(CATS[level][island])
 
-            start_index += len(CATS[level][island])
-
-        cat_objects = []
-
-        for index, cat_data in enumerate(CATS[level][location]):
-
-            image = cls.cats[start_index + index]
-
-            cat = cls(
-                image,
-                cat_data["name"],
-                cat_data["beruf"],
-                cat_data["qualities"],
-                cat_data["rating"],
-                cat_data["location"],
+        return [
+            cls(
+                cls.cats[start + i],
+                data["name"],
+                data["beruf"],
+                data["qualities"],
+                data["rating"],
+                data["location"],
                 level
             )
-
-            cat_objects.append(cat)
-
-        return cat_objects
-
+            for i, data in enumerate(CATS[level][location])
+        ]
     def take(self):
         self.is_taken = True
 
