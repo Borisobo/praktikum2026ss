@@ -1,78 +1,73 @@
 AUFGABEN = {
-    1:{
-        "lev_aufgaben":"Level 1 - Katzen retten",
+    1: {
+        "lev_aufgaben": "Level 1 - Katzen retten",
         "aufgabe": [
             "Rette mindestens 2 Katzen.",
             "",
-            "Jede Katze muss eine Bewertung",
-            "von 4.1 oder höher haben.",
+            "Der Durchschnitt des Katzen-Ratings",
+            "muss mindestens 4,1 betragen.",
             "",
             "Bringe die Katzen zum Zielflag."
         ]
     },
-    2:{
-        "lev_aufgaben":"Level 2 - Die hungrige Insel",
-        "aufgabe":  [
-        "Auf der Insel gibt es nicht genug Essen.",
-        "",
-        "Außerdem gibt es Probleme bei neue Pakete im Lager",
-        "",
-        "Der minimale Katzen-Rating",
-        "muss über 4.2 liegen.",
-        "",
-        "Du hast eine verbessertes Boat Plätzen",
-        '',
-        "Löse die Probleme der Insel!"
+
+    2: {
+        "lev_aufgaben": "Level 2 - Die hungrigen Katzen",
+        "aufgabe": [
+            "Die Katzen an Bord haben Hunger.",
+            "Deshalb brauchen wir eine Bäckerin.",
+            "",
+            "Außerdem wird eine Lagerarbeiterin benötigt.",
+            "",
+            "Der Durchschnitt des Katzen-Ratings",
+            "muss mindestens 4,2 betragen.",
+            "",
+            "Hilf den Katzen und löse das Problem!"
         ]
     },
+
     3: {
-        "lev_aufgaben": "Level 3 - Die unkonzentrierte Katzen",
+        "lev_aufgaben": "Level 3 - Die unkonzentrierten Katzen",
         "aufgabe": [
-            "Auf der Insel haben die Katzen",
-            "Probleme mit der Konzentration.",
+            "Die Katzen haben Probleme mit der Konzentration.",
             "",
-            "Außerdem fehlen Katzen,",
-            "die Boote reparieren können.",
+            "Außerdem brauchen wir einen Handwerker.",
             "",
-            "Finde geeignete Katzen,",
-            "um beide Probleme zu lösen.",
+            "Wir benötigen eine Katze mit",
+            "den richtigen Fähigkeiten.",
             "",
-            "Die minimale Bewertung",
-            "muss über 4.3 liegen.",
+            "Der Durchschnitt des Katzen-Ratings",
+            "muss mindestens 4,3 betragen."
         ]
     },
 
-    4:{
-        "lev_aufgaben": "Level 4 - Katzen brauchen Urlaub",
+    4: {
+        "lev_aufgaben": "Level 4 - Katzen mit besonderen Fähigkeiten",
         "aufgabe": [
-            "Die Katzen auf der Insel sind völlig erschöpft.",
+            "Auf der Insel gibt es verschiedene Probleme.",
             "",
-            "Im Café fehlt Personal",
-            "und im Fitnessstudio gibt es Chaos.",
+            "Wir brauchen eine Trainerin,",
+            "eine Kellnerin und eine Barista.",
             "",
-            "Die minimale Bewertung",
-            "muss über 4.4 liegen.",
+            "Der Durchschnitt des Katzen-Ratings",
+            "muss mindestens 4,4 betragen.",
             "",
-            "Bring Ordnung auf die Insel!"
-            ]
+            "Rette die Katzen und bringe sie in Sicherheit!"
+        ]
     },
-    5:{
 
+    5: {
         "lev_aufgaben": "Level 5 - Die letzte Rettung",
         "aufgabe": [
             "Die Überschwemmung wird immer schlimmer.",
             "",
-            "Das Gewächshaus braucht dringend Hilfe",
-            "und die Stadt braucht ihren Bürgermeister.",
+            "Die Stadt braucht dringend Hilfe.",
+            "Deshalb brauchen wir den Bürgermeister an Bord.",
             "",
+            "Der Durchschnitt des Katzen-Ratings",
+            "muss mindestens 4,5 betragen.",
             "",
-            "Die minimale Bewertung",
-            "muss über 4.5 liegen.",
-            "",
-            "Bringe alle geretteten Katzen",
-            "zum Zielflag.",
-            "",
-            "Rette die Insel!"
+            "Rette die Katzen und bringe sie in Sicherheit!"
         ]
     }
 }
