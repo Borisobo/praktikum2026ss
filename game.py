@@ -63,16 +63,23 @@ class Game:
         )
 
         lines = [
-            "In der Welt der kleinen Katzen",
-            "ist eine schreckliche Überschwemmung",
-            "ausgebrochen.",
             "",
-            "Das Wasser steigt immer weiter.",
-            "Viele Katzen sitzen auf ihren Inseln fest.",
             "",
-            "Du bist ein mutiger Katzenretter.",
-            "Mit deinem Floß machst du dich auf den Weg,",
-            "um die Katzen zu retten."
+            "In der Katzenwelt hat eine schreckliche",
+            "Überschwemmung begonnen.",
+            "Das Wasser steigt immer weiter und",
+            "mehrere Katzen sitzen auf ihren Inseln fest.",
+            "",
+            "Unser Hauptheld Nyan Cat besitzt ein magisches Schiff.",
+            "Mit seiner Hilfe kann er zwischen den Inseln fahren",
+            "und mehrere Katzen vor der Überschwemmung retten.",
+            "",
+            "Doch das Schiff hat nur begrenzt Platz.",
+            "Deshalb muss Nyan Cat sorgfältig auswählen,",
+            "welche Katzen er mitnimmt.",
+            "",
+            "Hilf Nyan Cat, mehrere Katzen zu retten",
+            "und sie an einen sicheren Ort zu bringen!"
         ]
 
         y = self.scroll_rect.top + 350
