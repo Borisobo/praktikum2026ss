@@ -5,16 +5,15 @@ from boat import Boat
 
 class Player:
     def __init__(self):
-        self.image = pygame.image.load("assets/nyan_cat.png")
-        bounding = self.image.get_bounding_rect()
-        self.image = self.image.subsurface(bounding).copy()
-
+        self.image = pygame.image.load("assets/nyan_cat.png").convert_alpha()
+        self.image = self.image.subsurface(self.image.get_bounding_rect()).copy()
         self.image = pygame.transform.scale(self.image, (55, 40))
         self.mask = pygame.mask.from_surface(self.image)
 
         self.rect = self.image.get_rect(midbottom=(WIDTH // 2, HEIGHT - 220))
         self.x = float(self.rect.x)
         self.y = float(self.rect.y)
+
         self.vx = 0
         self.vy = 0
         self.acceleration = 0.5
@@ -23,9 +22,23 @@ class Player:
 
         self.boat = Boat(WIDTH // 2, HEIGHT - 130)
 
-    def draw(self, screen):
+    def draw(self, screen, level=1):
         self.boat.draw(screen)
-        screen.blit(self.image, self.rect)
+
+        if level == 3:
+            y, x = 15, 0
+        elif level == 4:
+            y, x = 5, 0
+        elif level == 5:
+            y, x = 25, 15
+        else:
+            screen.blit(self.image, self.rect)
+            return
+
+        rect = self.image.get_rect(
+            midbottom=(self.rect.centerx + x, self.boat.rect.bottom - y)
+        )
+        screen.blit(self.image, rect)
 
     def update(self, keys):
         if keys[pygame.K_LEFT]:
@@ -36,12 +49,13 @@ class Player:
             self.vy -= self.acceleration
         if keys[pygame.K_DOWN]:
             self.vy += self.acceleration
-        # Begrenzung von max_speed
+
         self.vx = max(-self.boat.speed, min(self.vx, self.boat.speed))
         self.vy = max(-self.boat.speed, min(self.vy, self.boat.speed))
-        # Reibungskraft
+
         self.vx *= self.friction
         self.vy *= self.friction
+
         self.x += self.vx
         self.y += self.vy
         self.rect.x = int(self.x)
@@ -50,4 +64,3 @@ class Player:
         self.boat.x = self.x
         self.boat.y = self.y + 50
         self.boat.rect.center = (int(self.boat.x), int(self.boat.y))
-
