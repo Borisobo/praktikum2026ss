@@ -188,18 +188,18 @@ class Level:
                 return False
             lager = any(cat._beruf == "Lagerarbeiterin" for cat in cats)
             elektrik = any(cat._beruf == "Elektriker" for cat in cats)
-            return all(cat._rating >= 4.2 for cat in cats) and lager and elektrik
+            return avg(cat._rating >= 4.2 for cat in cats) and lager and elektrik
         if self.level_number == 3:
             handwerker = any(cat._beruf == "Handwerker" for cat in cats)
             konzentration = any("konzentriert" in cat._qualities or "aufmerksam" in cat._qualities for cat in cats)
-            return all(cat._rating >= 4.3 for cat in cats) and handwerker and konzentration
+            return avg(cat._rating >= 4.3 for cat in cats) and handwerker and konzentration
         if self.level_number == 4:
             fitnes = any(cat._beruf == "Trainer" for cat in cats)
             kellner = any(cat._beruf == "Kellnerin" for cat in cats)
             barista = any(cat._beruf == "Barista" for cat in cats)
-            return all(cat._rating >= 4.4 for cat in cats) and fitnes and kellner and barista
+            return avg(cat._rating >= 4.4 for cat in cats) and fitnes and kellner and barista
         if self.level_number == 5:
             buergermeister = any(cat._beruf == "Bürgermeister" for cat in cats)
-            return all(cat._rating >= 4.5 for cat in cats) and buergermeister
+            return avg(cat._rating >= 4.5 for cat in cats) and buergermeister
 
 
